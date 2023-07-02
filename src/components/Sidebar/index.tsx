@@ -12,7 +12,10 @@ export function Sidebar() {
       />
 
       <div className={styles.profile}>
-        <Avatar urlImage='https://github.com/mateussantanasilva.png'/>
+        <Avatar
+          src='https://github.com/mateussantanasilva.png'
+          alt='Foto de perfil'
+        />
 
         <strong>Mateus Santana</strong>
         <span>Web Developer</span>
