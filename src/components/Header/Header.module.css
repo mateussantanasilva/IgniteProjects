@@ -18,3 +18,17 @@
   line-height: 160%;
   color: var(--gray-100);
 }
+
+@media (max-width: 375px) {
+  .header {
+    padding: 1rem 0;
+  }
+
+  .header img {
+    width: 3rem;
+  }
+
+  .header strong {
+    font-size: 1.4rem;
+  }
+}

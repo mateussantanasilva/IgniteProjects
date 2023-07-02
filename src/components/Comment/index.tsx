@@ -1,11 +1,32 @@
 import { Avatar } from '../Avatar'
 import { ThumbsUp, Trash } from '@phosphor-icons/react'
 import styles from './Comment.module.css'
+import { useState } from 'react'
 
-export function Comment() {
+interface Comment {
+  content: string
+  onDeleteComment: (content: string) => void
+}
+
+export function Comment({ content, onDeleteComment }: Comment) {
+  const [likeCount, setLikeCount] = useState(0)
+
+  function handleDeleteComment() {
+    onDeleteComment(content)
+  }
+  function handleLikeComment() {
+    setLikeCount(previusState => { return previusState + 1 })
+  }
+
+  const showLikeCount = likeCount > 0 && <span>{likeCount}</span>
+
   return (
     <section className={styles.comment}>
-      <Avatar hasBorder={false} urlImage='https://randomuser.me/api/portraits/women/63.jpg' />
+      <Avatar
+        hasBorder={false}
+        src='https://randomuser.me/api/portraits/women/63.jpg'
+        alt='Foto de perfil'
+      />
 
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
@@ -15,18 +36,21 @@ export function Comment() {
               <time title='29 de Junho às 20:50h' dateTime='2023-06-29 20:50:00'>Cerca de 1h atrás</time>
             </div>
 
-            <button title='Deletar comentário'>
+            <button
+              onClick={handleDeleteComment}
+              title='Deletar comentário'
+            >
               <Trash size={'1.5rem'} />
             </button>
           </header>
 
-          <p>Muito bom Jane, parabéns!! 👏👏</p>
+          <p>{content}</p>
         </div>
 
         <footer>
-          <button>
+          <button onClick={handleLikeComment}>
             <ThumbsUp size={'1.25rem'} />
-            Aplaudir <span>20</span>
+            Curtir {showLikeCount}
           </button>
         </footer>
       </div>
