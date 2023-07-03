@@ -67,6 +67,7 @@
 }
 
 .task p {
+  flex: 1;
   font-size: .875rem;
   color: var(--gray-100);
 
