@@ -15,10 +15,11 @@
   border-radius: 8px;
 
   line-height: 1rem;
+  color: var(--gray-100);
 }
 
-.formCreateTask input:focus {
-  color: var(--gray-100);
+.formCreateTask input::placeholder{
+  color: var(--gray-300);
 }
 
 .formCreateTask button {
@@ -46,4 +47,11 @@
 
 .formCreateTask button svg {
   color: var(--gray-100);
+}
+
+@media (max-width: 375px) {
+  .formCreateTask {
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
 }
