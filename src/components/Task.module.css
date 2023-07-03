@@ -1,0 +1,101 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: .75rem;
+
+  background: var(--gray-500);
+  padding: 1rem;
+
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+}
+
+.task input {
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.task .checkbox {
+  width: 1.1rem;
+  height: 1.1rem;
+
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+
+.task input:not(:checked)+.checkbox:hover {
+  background: var(--blue-dark-500);
+  border-color: var(--blue-dark);
+}
+
+.task>label svg {
+  opacity: 0;
+  visibility: hidden;
+
+  color: var(--gray-100);
+
+  transition: .2s;
+}
+
+.task input:checked+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--purple-dark);
+  border: var(--purple-dark);
+
+  transition: background .2s, border .2s;
+}
+
+.task input:checked+.checkbox:hover {
+  background: var(--purple);
+  border: var(--purple);
+}
+
+.task input:checked+.checkbox svg {
+  opacity: initial;
+  visibility: visible;
+}
+
+.task p {
+  font-size: .875rem;
+  color: var(--gray-100);
+
+  transition: color .2s, text-decoration .2s;
+}
+
+.task input:checked~p {
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
+
+.task .deleteTask {
+  background: transparent;
+  border: none;
+  border-radius: .25rem;
+
+  line-height: 0;
+  padding: .2rem;
+  cursor: pointer;
+}
+
+.task .deleteTask:hover {
+  background: var(--gray-400);
+}
+
+.task .deleteTask>svg {
+  color: var(--gray-300);
+}
+
+.task .deleteTask:hover>svg {
+  color: var(--danger);
+}

@@ -1,0 +1,49 @@
+.formCreateTask {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+
+  margin: calc(0px - 3.375rem / 2) 1rem 4rem;
+}
+
+.formCreateTask input {
+  padding: 1rem;
+  width: min(39.875rem, 100%);
+  background: var(--gray-500);
+
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+
+  line-height: 1rem;
+}
+
+.formCreateTask input:focus {
+  color: var(--gray-100);
+}
+
+.formCreateTask button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+
+  padding: 1rem;
+  background: var(--blue-dark);
+  border: none;
+  border-radius: 8px;
+
+  font-size: .875rem;
+  color: var(--gray-100);
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.formCreateTask button:hover {
+  background: var(--blue);
+}
+
+.formCreateTask button svg {
+  color: var(--gray-100);
+}
