@@ -13,6 +13,16 @@ export const metadata = {
   title: 'To-do List',
   description:
     'Uma lista de tarefas para controlar todos os compromissos, desenvolvida com React, Next.js e TypeScript.',
+  keywords: [
+    'To-do',
+    'Tasks',
+    'Next.js',
+    'React',
+    'TypeScript',
+    'tarefas',
+    'lista',
+  ],
+  authors: [{ name: 'Mateus Santana' }],
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
