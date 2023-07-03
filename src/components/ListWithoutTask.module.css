@@ -13,3 +13,8 @@
   height: 3.5rem;
   margin-bottom: 1rem;
 }
+
+.withoutTask strong,
+.withoutTask p {
+  text-align: center;
+}
