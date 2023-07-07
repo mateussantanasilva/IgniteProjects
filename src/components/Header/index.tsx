@@ -7,10 +7,13 @@ import { HeaderContainer } from './styles'
 export function Header() {
   return (
     <HeaderContainer>
-      <img
-        src={logoIgnite}
-        alt="Dois triângulos verdes apontando para cima representando o logo do ignite"
-      />
+      <NavLink to="/" title="Home">
+        <img
+          src={logoIgnite}
+          alt="Dois triângulos verdes apontando para cima representando o logo do ignite"
+        />
+      </NavLink>
+
       <nav>
         <NavLink to="/" title="Timer">
           <Timer size={'2.4rem'} />
