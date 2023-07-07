@@ -1,26 +1,11 @@
+import { useContext } from 'react'
+import { useFormContext } from 'react-hook-form'
+import { CyclesContext } from '../../../../contexts/CyclesContext'
 import { FormContainer, TaskInput, MinutesQuantityInput } from './styles'
 
-const newCycleFormValidationSchema = z.object({
-  task: z.string().min(1, 'Informe a tarefa'),
-  minutesQuantity: z
-    .number()
-    .min(5, 'Deve ter o min de 5 min')
-    .max(60, 'Deve ter o max de 60 min'),
-})
-type NewCycleFormData = z.infer<typeof newCycleFormValidationSchema>
-
-
 export function NewCycleForm() {
-  // add { formState } to use formState.errors and view erros messages
-  const { register, handleSubmit, watch, reset } = useForm({
-    resolver: zodResolver(newCycleFormValidationSchema),
-    defaultValues: {
-      // define handleSubmit parameter types
-      task: '',
-      minutesQuantity: 0,
-    },
-  })
-
+  const { activeCycle } = useContext(CyclesContext)
+  const { register } = useFormContext()
 
   return (
     <FormContainer>
