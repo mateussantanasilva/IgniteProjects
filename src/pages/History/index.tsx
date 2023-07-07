@@ -1,6 +1,12 @@
+import { useContext } from 'react'
+import { formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 import { HistoryContainer, Status, TaskHistory } from './styles'
+import { CyclesContext } from '../../contexts/CyclesContext'
 
 export function History() {
+  const { cycles } = useContext(CyclesContext)
+
   return (
     <HistoryContainer>
       <h1>Meu histórico</h1>
@@ -17,54 +23,33 @@ export function History() {
           </thead>
 
           <tbody>
-            <tr>
-              <td>Conserto de débitos técnicos </td>
-              <td>20 minutos</td>
-              <td>Há cerca de 2 meses</td>
-              <td>
-                <Status taskStatusColor={'green'}>Concluído</Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Conserto de débitos técnicos </td>
-              <td>20 minutos</td>
-              <td>Há cerca de 2 meses</td>
-              <td>
-                <Status taskStatusColor={'yellow'}>Em andamento</Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Conserto de débitos técnicos </td>
-              <td>20 minutos</td>
-              <td>Há cerca de 2 meses</td>
-              <td>
-                <Status taskStatusColor={'red'}>Interrompido</Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Conserto de débitos técnicos </td>
-              <td>20 minutos</td>
-              <td>Há cerca de 2 meses</td>
-              <td>
-                <Status taskStatusColor={'green'}>Concluído</Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Conserto de débitos técnicos </td>
-              <td>20 minutos</td>
-              <td>Há cerca de 2 meses</td>
-              <td>
-                <Status taskStatusColor={'green'}>Concluído</Status>
-              </td>
-            </tr>
-            <tr>
-              <td>Conserto de débitos técnicos </td>
-              <td>20 minutos</td>
-              <td>Há cerca de 2 meses</td>
-              <td>
-                <Status taskStatusColor={'green'}>Concluído</Status>
-              </td>
-            </tr>
+            {cycles.map((cycle) => {
+              return (
+                <tr key={cycle.id}>
+                  <td>{cycle.task}</td>
+                  <td>{cycle.minutesQuantity} minutos</td>
+                  <td>
+                    {formatDistanceToNow(cycle.startDate, {
+                      addSuffix: true,
+                      locale: ptBR,
+                    })}
+                  </td>
+                  <td>
+                    {cycle.finishedDate && (
+                      <Status taskStatusColor={'green'}>Concluído</Status>
+                    )}
+
+                    {cycle.interruptedDate && (
+                      <Status taskStatusColor={'red'}>Interrompido</Status>
+                    )}
+
+                    {!cycle.finishedDate && !cycle.interruptedDate && (
+                      <Status taskStatusColor={'yellow'}>Em andamento</Status>
+                    )}
+                  </td>
+                </tr>
+              )
+            })}
           </tbody>
         </table>
       </TaskHistory>
