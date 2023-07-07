@@ -1,5 +1,9 @@
 export const defaultTheme = {
+  'layout-height': 'calc(100vh - 8rem)',
+
   white: '#FFF',
+
+  'scrollBar-color': '#505059',
 
   'gray-100': '#E1E1E6',
   'gray-300': '#C4C4CC',

@@ -16,6 +16,7 @@ export const HistoryContainer = styled.main`
   flex: 1;
 
   padding: 5rem;
+  overflow-y: hidden;
 
   h1 {
     font-size: 2.4rem;
@@ -28,6 +29,24 @@ export const TaskHistory = styled.div`
   margin-top: 3.2rem;
   flex: 1;
   overflow: auto; // generate scroll bar
+  max-height: calc(${(props) => props.theme['layout-height']} - 40%);
+
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: ${(props) => props.theme['scrollBar-color']};
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${(props) => props.theme['gray-600']};
+  }
 
   table {
     width: 100%;

@@ -5,7 +5,7 @@ export const LayoutContainer = styled.section`
   flex-direction: column;
 
   max-width: 112rem;
-  height: calc(100vh - 8rem);
+  height: ${(props) => props.theme['layout-height']};
 
   padding: 4rem;
   margin: 4rem auto;
