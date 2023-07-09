@@ -13,6 +13,14 @@ export const FormContainer = styled.section`
   font-weight: 700;
   line-height: 160%;
   color: ${(props) => props.theme['gray-100']};
+
+  div {
+    position: relative;
+  }
+
+  @media (max-width: 455px) {
+    margin-top: 4rem;
+  }
 `
 
 const BaseInput = styled.input`
@@ -42,6 +50,7 @@ const BaseInput = styled.input`
 
 export const TaskInput = styled(BaseInput)`
   flex: 1;
+  width: 28rem;
 
   &::-webkit-calendar-picker-indicator {
     display: none !important;
@@ -50,4 +59,34 @@ export const TaskInput = styled(BaseInput)`
 
 export const MinutesQuantityInput = styled(BaseInput)`
   max-width: 6.4rem;
+  text-align: center;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+`
+
+export const ControllerButton = styled.button`
+  position: absolute;
+  cursor: pointer;
+
+  background: transparent;
+  color: ${(props) => props.theme['gray-500']};
+  line-height: 1rem;
+
+  &:first-child {
+    top: 1rem;
+    left: 0rem;
+  }
+
+  &:last-child {
+    top: 1rem;
+    right: 0rem;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 `
