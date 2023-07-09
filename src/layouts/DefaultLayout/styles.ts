@@ -4,7 +4,7 @@ export const LayoutContainer = styled.section`
   display: flex;
   flex-direction: column;
 
-  max-width: 112rem;
+  max-width: min(112rem, 95%);
   height: ${(props) => props.theme['layout-height']};
 
   padding: 4rem;
@@ -12,4 +12,8 @@ export const LayoutContainer = styled.section`
 
   background: ${(props) => props.theme['gray-800']};
   border-radius: 8px;
+
+  @media (max-width: 455px) {
+    height: auto;
+  }
 `
