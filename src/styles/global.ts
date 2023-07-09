@@ -29,4 +29,27 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-size: 1.6rem;
   }
+
+  &::-webkit-scrollbar {
+    width: 0.6rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: ${(props) => props.theme['scrollBar-color']};
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${(props) => props.theme['gray-600']};
+  }
+
+  @media (max-width: 768px) {
+    :root {
+      font-size: 50%;
+    }
+  }
 `
