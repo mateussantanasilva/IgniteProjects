@@ -4,12 +4,13 @@ import { Baloo_2, Roboto } from 'next/font/google'
 
 import { ThemeContextProvider } from '@/contexts/ThemeContext'
 import { GlobalStyleContextProvider } from '@/contexts/GlobalStyleContext'
+import { Header } from '@/components/Header'
 
-const ballo2 = Baloo_2({
+export const ballo2 = Baloo_2({
   subsets: ['latin'],
   weight: ['700', '800'],
   variable: '--font-ballo-2'
-})
+});
 const roboto = Roboto({
   subsets: ['latin'],
   weight: ['400', '700'],
@@ -38,9 +39,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={roboto.className}>
+      <body className={`${roboto.variable} ${ballo2.variable}`}>
         <ThemeContextProvider>
           <GlobalStyleContextProvider />
+          <Header />
           {children}
         </ThemeContextProvider>
       </body>
