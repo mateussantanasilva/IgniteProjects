@@ -2,7 +2,7 @@ export const defaultTheme = {
   // Product
   '--yellow-dark': '#C47F17',
   '--yellow': '#DBAC2C',
-  'yellow-light': '#F1E9C9',
+  '--yellow-light': '#F1E9C9',
 
   '--purple-dark': '#4B2995',
   '--purple': '#8047F8',
@@ -18,14 +18,14 @@ export const defaultTheme = {
   '--base-input': '#EDEDED',
   '--base-card': '#F3F2F2',
   '--backgroud': '#FAFAFA',
-  '--white-': '#FFFFFF',
+  '--white': '#FFFFFF',
 
   // Fonts
-  '--title-xl': '4.8rem',
-  '--title-l': '3.2rem',
-  '--title-m': '2.4rem',
-  '--title-s': '2rem',
-  '--title-xs': '1.8rem',
+  '--title-xl': '4.8rem', // h1
+  '--title-l': '3.2rem',  // h2
+  '--title-m': '2.4rem',  // h3
+  '--title-s': '2rem',    // h4
+  '--title-xs': '1.8rem', // h5
 
   '--text-l': '2rem',
   '--text-m': '1.6rem',
