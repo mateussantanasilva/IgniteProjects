@@ -19,7 +19,7 @@ export function Header() {
           São Paulo, SP
         </button>
 
-        <Link href={'/'} title="Carrinho de compras">
+        <Link href={'/checkout'} title="Carrinho de compras">
           <ShoppingCart size={'2.2rem'} weight={'fill'} />
         </Link>
       </NavContainer>

@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { Coffee } from "@/seeds/coffees";
-import { Minus, Plus, ShoppingCart } from "@phosphor-icons/react";
+import { ShoppingCart } from "@phosphor-icons/react";
 import { CardContainer, FooterContainer, FormContainer } from "./styles";
+import { Counter } from "@/components/Counter";
 
 export function CardCoffee({ name, about, categories, ...props }: Coffee) {
   return (
@@ -28,11 +29,7 @@ export function CardCoffee({ name, about, categories, ...props }: Coffee) {
         </div>
 
         <FormContainer>
-          <div>
-            <button type="button"><Minus size={'1.4rem'} weight={'bold'} /></button>
-            <input type="number" value={10} readOnly min={1} max={30} />
-            <button type="button"><Plus size={'1.4rem'} weight={'bold'} /></button>
-          </div>
+          <Counter />
 
           <button type="submit" title="Adicionar ao carrinho de compras">
             <ShoppingCart size={'2.2rem'} weight={'fill'} />
