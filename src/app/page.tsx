@@ -2,7 +2,14 @@
 
 import Image from "next/image";
 import { Coffee, Package, ShoppingCart, Timer } from "@phosphor-icons/react";
-import { BackgroundBlur, BenefitsItem, InformationContainer, HeroContainer, CoffeesContainer, ListContainer } from "./styles";
+import { 
+  BackgroundBlur, 
+  BenefitsItem, 
+  InformationContainer, 
+  HeroContainer, 
+  CoffeesContainer, 
+  ListContainer 
+} from "./styles";
 import { CardCoffee } from "./components/CardCoffee";
 import { coffees } from "@/seeds/coffees";
 
@@ -15,7 +22,7 @@ export default function Home() {
             <h1>Encontre o café perfeito para qualquer hora do dia</h1>
             <p>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</p>
 
-            <div>
+            <ul>
               <BenefitsItem>
                 <ShoppingCart size={'1.6rem'} weight="fill" />
                 <p>Compra simples e segura</p>
@@ -35,7 +42,7 @@ export default function Home() {
                 <Coffee size={'1.6rem'} weight="fill" />
                 <p>O café chega fresquinho até você</p>
               </BenefitsItem>
-            </div>
+            </ul>
           </InformationContainer>
 
           <Image src={'/presentation-coffee.svg'} alt="Imagem de uma embalagem de café de delivery com vários tipos de grãos de café atrás" width={476} height={360} />
