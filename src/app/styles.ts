@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { WrapperStyle } from "./globals";
 
 export const BackgroundBlur = styled.div`
   background-image: url('/backgroud-blur.svg');
@@ -12,8 +13,12 @@ export const HeroContainer = styled.section`
   justify-content: space-between; 
   align-items: flex-start ; 
 
-  width: min(90%, 112rem);
-  margin: 0 auto;
+  ${WrapperStyle}
+
+  img {
+    width: 47.6rem;
+    height: auto;
+  }
 `
 
 export const InformationContainer = styled.div`
@@ -30,17 +35,16 @@ export const InformationContainer = styled.div`
     margin-block: 1.6rem 6.6rem;
   }
 
-  & > div {
+  & > ul {
     display: grid;
     grid-template-columns: 23.4rem 1fr;
     gap: 2rem 4rem;
   }
 `
 
-export const BenefitsItem = styled.div`
+export const BenefitsItem = styled.li`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   gap: 1.2rem;
 
   svg {
@@ -50,7 +54,7 @@ export const BenefitsItem = styled.div`
     border-radius: 50%;
     padding: 0.8rem;
 
-    color: ${props => props.theme["--white"]};   
+    color: ${props => props.theme["--white"]}; 
   }
   
   &:nth-child(1) {
@@ -79,8 +83,7 @@ export const BenefitsItem = styled.div`
 `
 
 export const CoffeesContainer = styled.section` 
-  width: min(90%, 112rem);
-  margin: 0 auto;
+  ${WrapperStyle}
   padding-block: 3.2rem;
 
   h2 {
