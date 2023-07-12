@@ -1,14 +1,14 @@
 'use client'
 
-import Image from "next/image";
-import { CurrencyDollar, MapPin, Timer } from "@phosphor-icons/react";
-import { 
-  ContentContainer, 
-  DetailItem, 
-  DetailsContainer, 
-  HeaderContainer, 
-  SuccessContainer 
-} from "./styles";
+import Image from 'next/image'
+import { CurrencyDollar, MapPin, Timer } from '@phosphor-icons/react'
+import {
+  ContentContainer,
+  DetailItem,
+  DetailsContainer,
+  HeaderContainer,
+  SuccessContainer,
+} from './styles'
 
 export default function Success() {
   return (
@@ -25,7 +25,9 @@ export default function Success() {
               <MapPin size={'1.6rem'} weight={'fill'} />
 
               <div>
-                <p>Entrega em <strong>Rua João Daniel Martinelli, 102</strong></p>
+                <p>
+                  Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                </p>
                 <p>Farrapos - Porto Alegre, RS</p>
               </div>
             </DetailItem>
@@ -35,7 +37,9 @@ export default function Success() {
 
               <div>
                 <p>Previsão de entrega</p>
-                <p><strong>20 min - 30 min</strong></p>
+                <p>
+                  <strong>20 min - 30 min</strong>
+                </p>
               </div>
             </DetailItem>
 
@@ -44,12 +48,19 @@ export default function Success() {
 
               <div>
                 <p>Pagamento na entrega</p>
-                <p><strong>Cartão de Crédito</strong></p>
+                <p>
+                  <strong>Cartão de Crédito</strong>
+                </p>
               </div>
             </DetailItem>
           </DetailsContainer>
 
-          <Image src="/delivery.svg" alt="Ilustração de uma pessoa digirindo uma moto para fazer entrega do café" width={492} height={293} />
+          <Image
+            src="/delivery.svg"
+            alt="Ilustração de uma pessoa digirindo uma moto para fazer entrega do café"
+            width={492}
+            height={293}
+          />
         </ContentContainer>
       </SuccessContainer>
     </main>

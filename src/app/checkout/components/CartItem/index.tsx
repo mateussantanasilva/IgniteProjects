@@ -1,7 +1,11 @@
-import Image from "next/image";
-import { Counter } from "@/components/Counter";
-import { Trash } from "@phosphor-icons/react";
-import { CartItemDivisor, CartItemContainer, ItemInformationContainer } from "./styles";
+import Image from 'next/image'
+import { Counter } from '@/components/Counter'
+import { Trash } from '@phosphor-icons/react'
+import {
+  CartItemDivisor,
+  CartItemContainer,
+  ItemInformationContainer,
+} from './styles'
 
 export function CartItem() {
   return (

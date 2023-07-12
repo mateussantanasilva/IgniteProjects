@@ -9,34 +9,31 @@ import { Header } from '@/components/Header'
 export const ballo2 = Baloo_2({
   subsets: ['latin'],
   weight: ['700', '800'],
-  variable: '--font-ballo-2'
-});
+  variable: '--font-ballo-2',
+})
 const roboto = Roboto({
   subsets: ['latin'],
   weight: ['400', '700'],
-  variable: '--font-roboto'
+  variable: '--font-roboto',
 })
 
 export const metadata: Metadata = {
   title: 'Coffee Delivery',
-  description: 'Coffee Delivery é uma página de catálogo e compra de cafés desenvolvida com ReactJS, NextJS e TypeScript na trilha Ignite.',
+  description:
+    'Coffee Delivery é uma página de catálogo e compra de cafés desenvolvida com ReactJS, NextJS e TypeScript na trilha Ignite.',
   keywords: [
-    "Coffee",
-    "Delivery",
-    "Catálogo",
-    "Cafés",
-    "ReactJS",
-    "NextJS",
-    "TypeScript",
+    'Coffee',
+    'Delivery',
+    'Catálogo',
+    'Cafés',
+    'ReactJS',
+    'NextJS',
+    'TypeScript',
   ],
   authors: [{ name: 'Mateus Santana' }],
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <body className={`${roboto.variable} ${ballo2.variable}`}>
@@ -46,6 +43,6 @@ export default function RootLayout({
           {children}
         </ThemeContextProvider>
       </body>
-    </html >
+    </html>
   )
 }

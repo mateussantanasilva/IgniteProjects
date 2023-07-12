@@ -1,16 +1,21 @@
 'use client'
 
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image'
+import Link from 'next/link'
 
-import { MapPin, ShoppingCart } from "@phosphor-icons/react";
-import { HeaderContainer, NavContainer } from "./styles";
+import { MapPin, ShoppingCart } from '@phosphor-icons/react'
+import { HeaderContainer, NavContainer } from './styles'
 
 export function Header() {
   return (
     <HeaderContainer>
       <Link href={'/'} title="Home">
-        <Image src='/logo.svg' alt="Logo de uma embalagem de café de delivery com um foguete dentro e ao lado escrito Coffee Delivery" width={84.952} height={40} />
+        <Image
+          src="/logo.svg"
+          alt="Logo de uma embalagem de café de delivery com um foguete dentro e ao lado escrito Coffee Delivery"
+          width={84.952}
+          height={40}
+        />
       </Link>
 
       <NavContainer>

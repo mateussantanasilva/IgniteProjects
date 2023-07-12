@@ -1,7 +1,7 @@
 'use client'
 
-import { ShoppingCart } from "./components/ShoppingCart";
-import { CurrencyDollar, MapPin } from "@phosphor-icons/react";
+import { ShoppingCart } from './components/ShoppingCart'
+import { CurrencyDollar, MapPin } from '@phosphor-icons/react'
 import {
   FormContainer,
   DeliveryAndPaymentContainer,
@@ -9,8 +9,8 @@ import {
   PaymentContainer,
   SelectedPaymentContainer,
   MultiInputsContainer,
-} from "./styles";
-import { PaymentMethodButton } from "./components/PaymentButton";
+} from './styles'
+import { PaymentMethodButton } from './components/PaymentButton'
 
 export default function Checkout() {
   return (
@@ -55,7 +55,10 @@ export default function Checkout() {
 
               <div>
                 <p>Pagamento</p>
-                <p>O pagamento é feito na entrega. Escolha a forma que deseja pagar</p>
+                <p>
+                  O pagamento é feito na entrega. Escolha a forma que deseja
+                  pagar
+                </p>
               </div>
             </header>
 

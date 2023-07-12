@@ -1,21 +1,19 @@
 'use client'
 
-import Image from "next/image";
-import { Coffee } from "@/seeds/coffees";
-import { ShoppingCart } from "@phosphor-icons/react";
-import { CardContainer, FooterContainer, FormContainer } from "./styles";
-import { Counter } from "@/components/Counter";
+import Image from 'next/image'
+import { Coffee } from '@/seeds/coffees'
+import { ShoppingCart } from '@phosphor-icons/react'
+import { CardContainer, FooterContainer, FormContainer } from './styles'
+import { Counter } from '@/components/Counter'
 
-export function CardCoffee({ name, about, categories, ...props }: Coffee) {
+export function CardCoffee({ id, name, about, categories, src, alt }: Coffee) {
   return (
     <CardContainer>
-      <Image {...props} width={120} height={120} />
+      <Image src={src} alt={alt} width={120} height={120} />
 
       <header>
-        {categories.map(category => {
-          return (
-            <strong>{category}</strong>
-          )
+        {categories.map((category) => {
+          return <strong key={id}>{category}</strong>
         })}
       </header>
 
@@ -25,7 +23,8 @@ export function CardCoffee({ name, about, categories, ...props }: Coffee) {
 
       <FooterContainer>
         <div>
-          <span>R$ </span><strong>9,90</strong>
+          <span>R$ </span>
+          <strong>9,90</strong>
         </div>
 
         <FormContainer>

@@ -22,9 +22,9 @@ export const defaultTheme = {
 
   // Fonts
   '--title-xl': '4.8rem', // h1
-  '--title-l': '3.2rem',  // h2
-  '--title-m': '2.4rem',  // h3
-  '--title-s': '2rem',    // h4
+  '--title-l': '3.2rem', // h2
+  '--title-m': '2.4rem', // h3
+  '--title-s': '2rem', // h4
   '--title-xs': '1.8rem', // h5
 
   '--text-l': '2rem',
@@ -35,5 +35,5 @@ export const defaultTheme = {
   '--tag': '1rem',
 
   '--button-g': '1.4rem',
-  '--button-m': '1.2rem'
+  '--button-m': '1.2rem',
 }

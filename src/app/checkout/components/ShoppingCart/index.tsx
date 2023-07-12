@@ -1,5 +1,5 @@
-import { CartItem } from "../CartItem";
-import { ShoppingCartContainer, CartFooterContainer } from "./styles";
+import { CartItem } from '../CartItem'
+import { ShoppingCartContainer, CartFooterContainer } from './styles'
 
 export function ShoppingCart() {
   return (

@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { BaseTitle } from "../../styles"
+import styled from 'styled-components'
+import { BaseTitle } from '../../styles'
 
 export const ShoppingCartContainer = styled.aside`
   h5 {
@@ -8,7 +8,7 @@ export const ShoppingCartContainer = styled.aside`
 
   & > section {
     padding: 4rem;
-    background: ${props => props.theme["--base-card"]};
+    background: ${(props) => props.theme['--base-card']};
     border-radius: 0.6rem 4.4rem;
   }
 `
@@ -35,14 +35,14 @@ export const CartFooterContainer = styled.footer`
       }
 
       & > strong {
-        color: ${props => props.theme["--base-subtitle"]};
+        color: ${(props) => props.theme['--base-subtitle']};
         font-size: 2rem;
       }
     }
   }
 
   button {
-    background: ${props => props.theme["--yellow"]};
+    background: ${(props) => props.theme['--yellow']};
     border-radius: 0.6rem;
 
     width: 100%;
@@ -52,12 +52,12 @@ export const CartFooterContainer = styled.footer`
     font-weight: 700;
     text-align: center;
     text-transform: uppercase;
-    color: ${props => props.theme["--white"]};
+    color: ${(props) => props.theme['--white']};
 
-    transition: background .2s;
+    transition: background 0.2s;
 
     &:hover {
-      background: ${props => props.theme["--yellow-dark"]};
+      background: ${(props) => props.theme['--yellow-dark']};
     }
   }
 `

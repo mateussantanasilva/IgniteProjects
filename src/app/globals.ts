@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle, css } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -15,12 +15,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :focus {
-    box-shadow: 0 0 0 1px ${props => props.theme['--yellow-dark']};
+    box-shadow: 0 0 0 1px ${(props) => props.theme['--yellow-dark']};
   }
 
   body, input, textarea, button {
     font-family: var(--font-roboto), sans-serif;
-    color: ${props => props.theme["--base-text"]};
+    color: ${(props) => props.theme['--base-text']};
     font-weight: 400;
   }
 
@@ -30,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${props => props.theme["--backgroud"]};
+    background: ${(props) => props.theme['--backgroud']};
     -webkit-font-smoothing: antialiased;
   }
 
@@ -45,26 +45,26 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: ${props => props.theme["--title-xl"]};
+    font-size: ${(props) => props.theme['--title-xl']};
     font-weight: 800;
   }
 
   h2 {
-    font-size: ${props => props.theme["--title-l"]};
+    font-size: ${(props) => props.theme['--title-l']};
     font-weight: 800;
   }
 
   h3 {
-    font-size: ${props => props.theme["--title-m"]};
+    font-size: ${(props) => props.theme['--title-m']};
     font-weight: 800;
   }
 
   h4 {
-    font-size: ${props => props.theme["--title-s"]};
+    font-size: ${(props) => props.theme['--title-s']};
   }
 
   h5 {
-    font-size: ${props => props.theme["--title-xs"]};
+    font-size: ${(props) => props.theme['--title-xs']};
   }
 `
 

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const CardContainer = styled.article`
   display: flex;
@@ -7,7 +7,7 @@ export const CardContainer = styled.article`
 
   padding: 2rem;
   max-width: 25.6rem;
-  background: ${props => props.theme["--base-card"]};
+  background: ${(props) => props.theme['--base-card']};
   border-radius: 0.6rem 3.6rem;
 
   img {
@@ -23,23 +23,23 @@ export const CardContainer = styled.article`
     gap: 0.4rem;
 
     & > strong {
-      background: ${props => props.theme["--yellow-light"]};
+      background: ${(props) => props.theme['--yellow-light']};
       border-radius: 100px;
       padding: 0.4rem 0.8rem;
       margin-block: 1.2rem 1.6rem;
 
-      color: ${props => props.theme["--yellow-dark"]};
+      color: ${(props) => props.theme['--yellow-dark']};
       font-size: 1rem;
       text-transform: uppercase;
     }
   }
 
   h4 {
-    color: ${props => props.theme["--base-subtitle"]};
+    color: ${(props) => props.theme['--base-subtitle']};
   }
 
   p {
-    color: ${props => props.theme["--base-label"]};
+    color: ${(props) => props.theme['--base-label']};
     text-align: center;
     font-size: 1.4rem;
 
@@ -71,19 +71,19 @@ export const FormContainer = styled.form`
 
   & > button {
     border-radius: 6px;
-    background: ${props => props.theme["--purple-dark"]};
-    padding: 0.8rem; 
+    background: ${(props) => props.theme['--purple-dark']};
+    padding: 0.8rem;
     cursor: pointer;
 
     line-height: 0;
-    transition: background .2s;
+    transition: background 0.2s;
 
     svg {
-      color: ${props => props.theme["--white"]};
+      color: ${(props) => props.theme['--white']};
     }
   }
 
   & > button:hover {
-    background: ${props => props.theme["--purple"]};
+    background: ${(props) => props.theme['--purple']};
   }
 `
