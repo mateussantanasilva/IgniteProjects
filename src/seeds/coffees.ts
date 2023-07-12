@@ -55,7 +55,7 @@ export const coffees: Coffee[] = [
   {
     id: uuidv4(),
     name: 'Latte',
-    about: 'Uma dose de café expresso com o dobro de leite e espuma cremosa',
+    about: 'Uma dose de café expresso com dobro de leite e espuma cremosa',
     categories: ['tradicional', 'com leite'], 
     src: '/coffees/latte.svg',
     alt: 'Xícara de café latte'

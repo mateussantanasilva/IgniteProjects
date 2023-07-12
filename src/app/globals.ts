@@ -1,5 +1,4 @@
-import { createGlobalStyle } from "styled-components";
-import { ballo2 } from "./layout";
+import { createGlobalStyle, css } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -67,4 +66,9 @@ export const GlobalStyle = createGlobalStyle`
   h5 {
     font-size: ${props => props.theme["--title-xs"]};
   }
+`
+
+export const WrapperStyle = css`
+  width: min(90%, 112rem);
+  margin: 0 auto;
 `
