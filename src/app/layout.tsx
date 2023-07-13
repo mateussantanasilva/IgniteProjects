@@ -6,6 +6,7 @@ import { ThemeContextProvider } from '@/contexts/ThemeContext'
 import { GlobalStyleContextProvider } from '@/contexts/GlobalStyleContext'
 import { Header } from '@/components/Header'
 import { ShoppingCartContextProvider } from '@/contexts/ShoppingCartContext'
+import { AddressContextProvider } from '@/contexts/AddressContext'
 
 export const ballo2 = Baloo_2({
   subsets: ['latin'],
@@ -41,8 +42,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <ThemeContextProvider>
           <GlobalStyleContextProvider />
           <ShoppingCartContextProvider>
-            <Header />
-            {children}
+            <AddressContextProvider>
+              <Header />
+              {children}
+            </AddressContextProvider>
           </ShoppingCartContextProvider>
         </ThemeContextProvider>
       </body>

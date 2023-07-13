@@ -2,7 +2,11 @@
 
 import { ReactNode, createContext, useEffect, useReducer } from 'react'
 import { ShoppingCartReducer } from '@/reducers/shoppingCart/reducer'
-import { addItemToCartAction } from '@/reducers/shoppingCart/actions'
+import {
+  addItemToCartAction,
+  changeAmountCoffeeAction,
+  deleteCartItemAction,
+} from '@/reducers/shoppingCart/actions'
 import { AddToCartFormProps } from '@/app/components/AddToCartForm'
 
 interface ProviderProps {
@@ -16,6 +20,8 @@ export interface CartItem extends AddToCartFormProps {
 interface ShoppingCartContextType {
   cartItemsState: CartItem[]
   addItemToCart: (cartItem: CartItem) => void
+  changeAmountCoffee: (type: string, idCartItem: string) => void
+  deleteCartItem: (id: string) => void
 }
 
 export const ShoppingCartContext = createContext({} as ShoppingCartContextType)
@@ -45,8 +51,23 @@ export function ShoppingCartContextProvider({ children }: ProviderProps) {
     dispatchAction(addItemToCartAction(cartItem))
   }
 
+  function changeAmountCoffee(type: string, idCartItem: string) {
+    dispatchAction(changeAmountCoffeeAction(type, idCartItem))
+  }
+
+  function deleteCartItem(id: string) {
+    dispatchAction(deleteCartItemAction(id))
+  }
+
   return (
-    <ShoppingCartContext.Provider value={{ cartItemsState, addItemToCart }}>
+    <ShoppingCartContext.Provider
+      value={{
+        cartItemsState,
+        addItemToCart,
+        changeAmountCoffee,
+        deleteCartItem,
+      }}
+    >
       {children}
     </ShoppingCartContext.Provider>
   )

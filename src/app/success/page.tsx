@@ -9,8 +9,14 @@ import {
   HeaderContainer,
   SuccessContainer,
 } from './styles'
+import { AddressContext } from '@/contexts/AddressContext'
+import { useContext } from 'react'
 
 export default function Success() {
+  const { addressState } = useContext(AddressContext)
+  const hasComplement = addressState.complement !== ''
+  const [, paymentMethodText] = addressState.paymentMethod.split(',')
+
   return (
     <main>
       <SuccessContainer>
@@ -26,9 +32,15 @@ export default function Success() {
 
               <div>
                 <p>
-                  Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                  Entrega em{' '}
+                  <strong>
+                    {addressState.street}, {addressState.numberHouse}
+                    {hasComplement && ` - ${addressState.complement}`}
+                  </strong>
                 </p>
-                <p>Farrapos - Porto Alegre, RS</p>
+                <p>
+                  {`${addressState.neighborhood} - ${addressState.city}, ${addressState.uf}`}
+                </p>
               </div>
             </DetailItem>
 
@@ -49,7 +61,7 @@ export default function Success() {
               <div>
                 <p>Pagamento na entrega</p>
                 <p>
-                  <strong>Cartão de Crédito</strong>
+                  <strong>{paymentMethodText}</strong>
                 </p>
               </div>
             </DetailItem>

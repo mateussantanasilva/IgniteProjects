@@ -1,4 +1,3 @@
-import { Counter } from '@/components/Counter'
 import { ShoppingCart } from '@phosphor-icons/react'
 import { FormProvider, useForm } from 'react-hook-form'
 import { FormContainer } from './styles'
@@ -6,12 +5,14 @@ import { ShoppingCartContext } from '@/contexts/ShoppingCartContext'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useContext, useState } from 'react'
 import { z } from 'zod'
+import { CounterInput } from '../CounterInput'
 
 export interface AddToCartFormProps {
   id: string
   name: string
   src: string
   alt: string
+  price: number
 }
 
 const AddToCartFormValidationSchema = z.object({
@@ -19,7 +20,7 @@ const AddToCartFormValidationSchema = z.object({
 })
 type AddToCartFormData = z.infer<typeof AddToCartFormValidationSchema>
 
-export function AddToCartForm({ id, name, src, alt }: AddToCartFormProps) {
+export function AddToCartForm({ ...props }: AddToCartFormProps) {
   const [amountCoffee, setAmountCoffee] = useState(0)
 
   const { addItemToCart } = useContext(ShoppingCartContext)
@@ -34,10 +35,7 @@ export function AddToCartForm({ id, name, src, alt }: AddToCartFormProps) {
 
   function handleAddItemToCart({ amountCoffee }: AddToCartFormData) {
     const cartItem = {
-      id,
-      name,
-      src,
-      alt,
+      ...props,
       amountCoffee,
     }
 
@@ -52,7 +50,7 @@ export function AddToCartForm({ id, name, src, alt }: AddToCartFormProps) {
   return (
     <FormContainer onSubmit={handleSubmit(handleAddItemToCart)}>
       <FormProvider {...addToCartForm}>
-        <Counter
+        <CounterInput
           amountCoffee={amountCoffee}
           changeAmountCoffee={changeAmountCoffee}
         />

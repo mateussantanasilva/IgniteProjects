@@ -14,6 +14,7 @@ export interface Coffee {
   categories: CoffeeCategory[]
   src: string
   alt: string
+  price: number
 }
 
 export const coffees: Coffee[] = [
@@ -24,6 +25,7 @@ export const coffees: Coffee[] = [
     categories: ['tradicional'],
     src: '/coffees/traditional.svg',
     alt: 'Xícara de café tradicional',
+    price: 6.0,
   },
   {
     id: uuidv4(),
@@ -32,6 +34,7 @@ export const coffees: Coffee[] = [
     categories: ['tradicional'],
     src: '/coffees/american.svg',
     alt: 'Xícara de café americano',
+    price: 7.0,
   },
   {
     id: uuidv4(),
@@ -40,6 +43,7 @@ export const coffees: Coffee[] = [
     categories: ['tradicional'],
     src: '/coffees/creamy.svg',
     alt: 'Xícara de café cremoso',
+    price: 8.0,
   },
   {
     id: uuidv4(),
@@ -48,6 +52,7 @@ export const coffees: Coffee[] = [
     categories: ['tradicional', 'gelado'],
     src: '/coffees/ice.svg',
     alt: 'Xícara de café gelado',
+    price: 9.5,
   },
   {
     id: uuidv4(),
@@ -56,6 +61,7 @@ export const coffees: Coffee[] = [
     categories: ['tradicional', 'com leite'],
     src: '/coffees/milk.svg',
     alt: 'Xícara de café com leite',
+    price: 7.5,
   },
   {
     id: uuidv4(),
@@ -64,6 +70,7 @@ export const coffees: Coffee[] = [
     categories: ['tradicional', 'com leite'],
     src: '/coffees/latte.svg',
     alt: 'Xícara de café latte',
+    price: 8.5,
   },
   {
     id: uuidv4(),
@@ -72,6 +79,7 @@ export const coffees: Coffee[] = [
     categories: ['tradicional', 'com leite'],
     src: '/coffees/cappuccino.svg',
     alt: 'Xícara de café capuccino',
+    price: 7.5,
   },
   {
     id: uuidv4(),
@@ -80,6 +88,7 @@ export const coffees: Coffee[] = [
     categories: ['tradicional', 'com leite'],
     src: '/coffees/macchiato.svg',
     alt: 'Xícara de café macchiato',
+    price: 8.5,
   },
   {
     id: uuidv4(),
@@ -88,6 +97,7 @@ export const coffees: Coffee[] = [
     categories: ['tradicional', 'com leite'],
     src: '/coffees/mocha.svg',
     alt: 'Xícara de café mocaccino',
+    price: 9.0,
   },
   {
     id: uuidv4(),
@@ -96,6 +106,7 @@ export const coffees: Coffee[] = [
     categories: ['especial', 'com leite'],
     src: '/coffees/chocolate.svg',
     alt: 'Xícara de chocolate quente',
+    price: 8.0,
   },
   {
     id: uuidv4(),
@@ -104,6 +115,7 @@ export const coffees: Coffee[] = [
     categories: ['especial', 'alcoólico', 'gelado'],
     src: '/coffees/cuban.svg',
     alt: 'Xícara de café cubano',
+    price: 9.5,
   },
   {
     id: uuidv4(),
@@ -112,6 +124,7 @@ export const coffees: Coffee[] = [
     categories: ['especial'],
     src: '/coffees/hawaiian.svg',
     alt: 'Xícara de café havaiano',
+    price: 7.0,
   },
   {
     id: uuidv4(),
@@ -120,6 +133,7 @@ export const coffees: Coffee[] = [
     categories: ['especial'],
     src: '/coffees/arabic.svg',
     alt: 'Xícara de café árabe',
+    price: 8.5,
   },
   {
     id: uuidv4(),
@@ -128,5 +142,6 @@ export const coffees: Coffee[] = [
     categories: ['especial', 'alcoólico'],
     src: '/coffees/irish.svg',
     alt: 'Xícara de café irlandês',
+    price: 9.0,
   },
 ]

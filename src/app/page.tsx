@@ -71,6 +71,7 @@ export default function Home() {
                 categories={coffee.categories}
                 src={coffee.src}
                 alt={coffee.alt}
+                price={coffee.price}
               />
             )
           })}

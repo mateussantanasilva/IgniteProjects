@@ -4,8 +4,17 @@ import Image from 'next/image'
 import { Coffee } from '@/seeds/coffees'
 import { CardContainer, FooterContainer } from './styles'
 import { AddToCartForm } from '../AddToCartForm'
+import { formatMoney } from '@/utils/formatMoney'
 
-export function CardCoffee({ id, name, about, categories, src, alt }: Coffee) {
+export function CardCoffee({
+  id,
+  name,
+  about,
+  categories,
+  src,
+  alt,
+  price,
+}: Coffee) {
   return (
     <CardContainer>
       <Image src={src} alt={alt} width={120} height={120} />
@@ -23,10 +32,10 @@ export function CardCoffee({ id, name, about, categories, src, alt }: Coffee) {
       <FooterContainer>
         <div>
           <span>R$ </span>
-          <strong>9,90</strong>
+          <strong>{formatMoney(price)}</strong>
         </div>
 
-        <AddToCartForm id={id} name={name} src={src} alt={alt} />
+        <AddToCartForm id={id} name={name} src={src} alt={alt} price={price} />
       </FooterContainer>
     </CardContainer>
   )
