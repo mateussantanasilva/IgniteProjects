@@ -1,31 +1,40 @@
 import Image from 'next/image'
-import { Counter } from '@/components/Counter'
 import { Trash } from '@phosphor-icons/react'
 import {
   CartItemDivisor,
   CartItemContainer,
   ItemInformationContainer,
 } from './styles'
+import { CartItem, ShoppingCartContext } from '@/contexts/ShoppingCartContext'
+import { Counter } from '../Counter'
+import { useContext } from 'react'
+import { formatMoney } from '@/utils/formatMoney'
 
-export function CartItem() {
+interface CartItemProps {
+  coffee: CartItem
+  totalItemPrice: number
+}
+
+export function CartItem({ coffee, totalItemPrice }: CartItemProps) {
+  const { deleteCartItem } = useContext(ShoppingCartContext)
+
+  function handleDeleteCartItem() {
+    deleteCartItem(coffee.id)
+  }
+
   return (
     <CartItemDivisor>
       <CartItemContainer>
         <section>
-          <Image
-            src={'/coffees/traditional.svg'}
-            alt="Xícara de café tradicional"
-            width={64}
-            height={64}
-          />
+          <Image src={coffee.src} alt={coffee.alt} width={64} height={64} />
 
           <ItemInformationContainer>
-            <p>Expresso Tradicional</p>
+            <p>{coffee.name}</p>
 
             <div>
-              <Counter />
+              <Counter id={coffee.id} amountCoffee={coffee.amountCoffee} />
 
-              <button type="button">
+              <button type="button" onClick={handleDeleteCartItem}>
                 <Trash size={'1.6rem'} />
                 Remover
               </button>
@@ -33,7 +42,7 @@ export function CartItem() {
           </ItemInformationContainer>
         </section>
 
-        <strong>R$ 9,90</strong>
+        <strong>R$ {formatMoney(totalItemPrice)}</strong>
       </CartItemContainer>
     </CartItemDivisor>
   )

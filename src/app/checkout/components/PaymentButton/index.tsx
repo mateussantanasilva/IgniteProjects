@@ -1,5 +1,6 @@
 import { Bank, CreditCard, Money } from '@phosphor-icons/react'
 import { PaymentMethodContainer } from './styles'
+import { useFormContext } from 'react-hook-form'
 
 const MethodPayment = {
   CreditCard: { title: 'Cartão de crédito', value: 'creditCard' },
@@ -12,6 +13,8 @@ interface PaymentMethodButtonProps {
 }
 
 export function PaymentMethodButton({ type }: PaymentMethodButtonProps) {
+  const { register } = useFormContext()
+
   const { title, value } = MethodPayment[type]
   let icon
 
@@ -29,7 +32,12 @@ export function PaymentMethodButton({ type }: PaymentMethodButtonProps) {
 
   return (
     <PaymentMethodContainer>
-      <input type="radio" id={value} name="options" value={value} />
+      <input
+        type="radio"
+        id={value}
+        value={`${value},${title}`}
+        {...register('paymentMethod')}
+      />
       <label htmlFor={value}>
         {icon}
         {title}
