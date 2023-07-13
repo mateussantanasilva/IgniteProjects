@@ -8,7 +8,7 @@ type CoffeeCategory =
   | 'especial'
 
 export interface Coffee {
-  id?: string
+  id: string
   name: string
   about: string
   categories: CoffeeCategory[]

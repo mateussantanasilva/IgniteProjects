@@ -2,9 +2,8 @@
 
 import Image from 'next/image'
 import { Coffee } from '@/seeds/coffees'
-import { ShoppingCart } from '@phosphor-icons/react'
-import { CardContainer, FooterContainer, FormContainer } from './styles'
-import { Counter } from '@/components/Counter'
+import { CardContainer, FooterContainer } from './styles'
+import { AddToCartForm } from '../AddToCartForm'
 
 export function CardCoffee({ id, name, about, categories, src, alt }: Coffee) {
   return (
@@ -13,7 +12,7 @@ export function CardCoffee({ id, name, about, categories, src, alt }: Coffee) {
 
       <header>
         {categories.map((category) => {
-          return <strong key={id}>{category}</strong>
+          return <strong key={`${id}${category}`}>{category}</strong>
         })}
       </header>
 
@@ -27,13 +26,7 @@ export function CardCoffee({ id, name, about, categories, src, alt }: Coffee) {
           <strong>9,90</strong>
         </div>
 
-        <FormContainer>
-          <Counter />
-
-          <button type="submit" title="Adicionar ao carrinho de compras">
-            <ShoppingCart size={'2.2rem'} weight={'fill'} />
-          </button>
-        </FormContainer>
+        <AddToCartForm id={id} name={name} src={src} alt={alt} />
       </FooterContainer>
     </CardContainer>
   )

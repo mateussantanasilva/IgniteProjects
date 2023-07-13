@@ -1,6 +1,10 @@
 import { WrapperStyle } from '@/app/globals'
 import styled from 'styled-components'
 
+interface LinkContainerProps {
+  amountitems?: number
+}
+
 export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
@@ -28,21 +32,25 @@ export const NavContainer = styled.nav`
     color: ${(props) => props.theme['--purple-dark']};
     line-height: 130%;
   }
+`
+
+export const LinkContainer = styled.div<LinkContainerProps>`
+  border-radius: 6px;
+  background: ${(props) => props.theme['--yellow-light']};
+  padding: 0.8rem;
+
+  line-height: 0;
+  position: relative;
 
   a {
-    border-radius: 6px;
-    background: ${(props) => props.theme['--yellow-light']};
-    padding: 0.8rem;
-
-    line-height: 0;
-    position: relative;
+    display: flex;
 
     svg {
       color: ${(props) => props.theme['--yellow-dark']};
     }
 
     &::after {
-      content: '3';
+      content: ${({ amountitems }) => (amountitems ? `'${amountitems}'` : '')};
       position: absolute;
 
       display: flex;

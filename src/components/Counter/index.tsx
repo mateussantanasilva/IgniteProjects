@@ -1,14 +1,46 @@
+import { useFormContext } from 'react-hook-form'
 import { Minus, Plus } from '@phosphor-icons/react'
 import { CounterContainer } from './styles'
 
-export function Counter() {
+interface CounterProps {
+  amountCoffee: number
+  changeAmountCoffee: (amount: number) => void
+}
+
+export function Counter({ amountCoffee, changeAmountCoffee }: CounterProps) {
+  const { register, setValue } = useFormContext()
+
+  function handleDecreaseAmount() {
+    if (amountCoffee > 0) {
+      const newAmountCoffee = amountCoffee - 1
+
+      changeAmountCoffee(newAmountCoffee)
+      setValue(`amountCoffee`, newAmountCoffee)
+    }
+  }
+  function handleIncreaseAmount() {
+    if (amountCoffee < 30) {
+      const newAmountCoffee = amountCoffee + 1
+
+      changeAmountCoffee(newAmountCoffee)
+      setValue(`amountCoffee`, newAmountCoffee)
+    }
+  }
+
   return (
     <CounterContainer>
-      <button type="button">
+      <button type="button" onClick={handleDecreaseAmount}>
         <Minus size={'1.4rem'} weight={'bold'} />
       </button>
-      <input type="number" value={10} readOnly min={1} max={30} />
-      <button type="button">
+      <input
+        type="number"
+        value={amountCoffee}
+        readOnly
+        min={1}
+        max={30}
+        {...register(`amountCoffee`, { valueAsNumber: true })}
+      />
+      <button type="button" onClick={handleIncreaseAmount}>
         <Plus size={'1.4rem'} weight={'bold'} />
       </button>
     </CounterContainer>

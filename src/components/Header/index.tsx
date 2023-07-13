@@ -4,9 +4,20 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
-import { HeaderContainer, NavContainer } from './styles'
+import { HeaderContainer, LinkContainer, NavContainer } from './styles'
+import { useContext } from 'react'
+import { ShoppingCartContext } from '@/contexts/ShoppingCartContext'
 
 export function Header() {
+  const { cartItemsState } = useContext(ShoppingCartContext)
+  const amountCartItems = cartItemsState.length
+
+  const linkToCartPage = (
+    <Link href={'/checkout'} title="Carrinho de compras">
+      <ShoppingCart size={'2.2rem'} weight={'fill'} />
+    </Link>
+  )
+
   return (
     <HeaderContainer>
       <Link href={'/'} title="Home">
@@ -24,9 +35,13 @@ export function Header() {
           São Paulo, SP
         </button>
 
-        <Link href={'/checkout'} title="Carrinho de compras">
-          <ShoppingCart size={'2.2rem'} weight={'fill'} />
-        </Link>
+        {amountCartItems > 0 ? (
+          <LinkContainer amountitems={amountCartItems}>
+            {linkToCartPage}
+          </LinkContainer>
+        ) : (
+          <LinkContainer>{linkToCartPage}</LinkContainer>
+        )}
       </NavContainer>
     </HeaderContainer>
   )

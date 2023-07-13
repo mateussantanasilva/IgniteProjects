@@ -5,6 +5,7 @@ import { Baloo_2, Roboto } from 'next/font/google'
 import { ThemeContextProvider } from '@/contexts/ThemeContext'
 import { GlobalStyleContextProvider } from '@/contexts/GlobalStyleContext'
 import { Header } from '@/components/Header'
+import { ShoppingCartContextProvider } from '@/contexts/ShoppingCartContext'
 
 export const ballo2 = Baloo_2({
   subsets: ['latin'],
@@ -39,8 +40,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className={`${roboto.variable} ${ballo2.variable}`}>
         <ThemeContextProvider>
           <GlobalStyleContextProvider />
-          <Header />
-          {children}
+          <ShoppingCartContextProvider>
+            <Header />
+            {children}
+          </ShoppingCartContextProvider>
         </ThemeContextProvider>
       </body>
     </html>

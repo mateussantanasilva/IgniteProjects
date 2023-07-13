@@ -65,6 +65,7 @@ export default function Home() {
             return (
               <CardCoffee
                 key={coffee.id}
+                id={coffee.id}
                 name={coffee.name}
                 about={coffee.about}
                 categories={coffee.categories}
