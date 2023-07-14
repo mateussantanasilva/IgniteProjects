@@ -3,7 +3,8 @@ import { CartItem } from '@/contexts/ShoppingCartContext'
 export enum ActionTypes {
   addItemToCart = 'addItemToCart',
   changeAmountCoffee = 'changeAmountCoffee',
-  deleteCartItemAction = 'deleteCartItemAction',
+  deleteCartItem = 'deleteCartItem',
+  resetCart = 'resetCart',
 }
 
 export function addItemToCartAction(cartItem: CartItem) {
@@ -29,9 +30,18 @@ export function changeAmountCoffeeAction(type: string, id: string) {
 
 export function deleteCartItemAction(id: string) {
   return {
-    type: 'deleteCartItemAction',
+    type: 'deleteCartItem',
     payload: {
       data: id,
+    },
+  }
+}
+
+export function resetCartAction() {
+  return {
+    type: 'resetCart',
+    payload: {
+      data: null,
     },
   }
 }

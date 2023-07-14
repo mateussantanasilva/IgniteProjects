@@ -37,6 +37,7 @@ export function PaymentMethodButton({ type }: PaymentMethodButtonProps) {
         id={value}
         value={`${value},${title}`}
         {...register('paymentMethod')}
+        required
       />
       <label htmlFor={value}>
         {icon}

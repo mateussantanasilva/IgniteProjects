@@ -10,18 +10,17 @@ interface ActionProps {
 }
 
 export function ShoppingCartReducer(state: CartItem[], action: ActionProps) {
-  const coffeeAlreadyExistsIndex = state.findIndex(
-    (item) => item.id === action.payload.data.id,
-  )
-
   switch (action.type) {
     case ActionTypes.addItemToCart: {
-      if (coffeeAlreadyExistsIndex >= 0) {
+      const coffeeAlreadyExistsIndex = state.findIndex(
+        (item) => item.id === action.payload.data.id,
+      )
+
+      if (coffeeAlreadyExistsIndex >= 0)
         return produce(state, (draft) => {
           draft[coffeeAlreadyExistsIndex].amountCoffee +=
             action.payload.data.amountCoffee
         })
-      }
 
       return produce(state, (draft) => {
         draft.push(action.payload.data)
@@ -29,6 +28,10 @@ export function ShoppingCartReducer(state: CartItem[], action: ActionProps) {
     }
 
     case ActionTypes.changeAmountCoffee: {
+      const coffeeAlreadyExistsIndex = state.findIndex(
+        (item) => item.id === action.payload.data.id,
+      )
+
       if (action.payload.data.type === 'increase')
         return produce(state, (draft) => {
           draft[coffeeAlreadyExistsIndex].amountCoffee += 1
@@ -39,10 +42,15 @@ export function ShoppingCartReducer(state: CartItem[], action: ActionProps) {
       })
     }
 
-    case ActionTypes.deleteCartItemAction: {
+    case ActionTypes.deleteCartItem: {
       return produce(state, (draft) => {
         return draft.filter((item) => item.id !== action.payload.data)
       })
+    }
+
+    case ActionTypes.resetCart: {
+      console.log('tet')
+      return []
     }
 
     default:

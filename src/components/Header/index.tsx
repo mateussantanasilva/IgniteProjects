@@ -20,29 +20,31 @@ export function Header() {
 
   return (
     <HeaderContainer>
-      <Link href={'/'} title="Home">
-        <Image
-          src="/logo.svg"
-          alt="Logo de uma embalagem de café de delivery com um foguete dentro e ao lado escrito Coffee Delivery"
-          width={84.952}
-          height={40}
-        />
-      </Link>
+      <div>
+        <Link href={'/'} title="Home">
+          <Image
+            src="/logo.svg"
+            alt="Logo de uma embalagem de café de delivery com um foguete dentro e ao lado escrito Coffee Delivery"
+            width={84.952}
+            height={40}
+          />
+        </Link>
 
-      <NavContainer>
-        <button title="Localização">
-          <MapPin size={'2.2rem'} weight={'fill'} />
-          São Paulo, SP
-        </button>
+        <NavContainer>
+          <button title="Localização">
+            <MapPin size={'2.2rem'} weight={'fill'} />
+            São Paulo, SP
+          </button>
 
-        {amountCartItems > 0 ? (
-          <LinkContainer amountitems={amountCartItems}>
-            {linkToCartPage}
-          </LinkContainer>
-        ) : (
-          <LinkContainer>{linkToCartPage}</LinkContainer>
-        )}
-      </NavContainer>
+          {amountCartItems > 0 ? (
+            <LinkContainer amountitems={amountCartItems}>
+              {linkToCartPage}
+            </LinkContainer>
+          ) : (
+            <LinkContainer>{linkToCartPage}</LinkContainer>
+          )}
+        </NavContainer>
+      </div>
     </HeaderContainer>
   )
 }

@@ -6,36 +6,38 @@ import { CardContainer, FooterContainer } from './styles'
 import { AddToCartForm } from '../AddToCartForm'
 import { formatMoney } from '@/utils/formatMoney'
 
-export function CardCoffee({
-  id,
-  name,
-  about,
-  categories,
-  src,
-  alt,
-  price,
-}: Coffee) {
+interface CardCoffeeProps {
+  coffee: Coffee
+}
+
+export function CardCoffee({ coffee }: CardCoffeeProps) {
   return (
     <CardContainer>
-      <Image src={src} alt={alt} width={120} height={120} />
+      <Image src={coffee.src} alt={coffee.alt} width={120} height={120} />
 
       <header>
-        {categories.map((category) => {
-          return <strong key={`${id}${category}`}>{category}</strong>
+        {coffee.categories.map((category) => {
+          return <strong key={`${coffee.id}${category}`}>{category}</strong>
         })}
       </header>
 
-      <h4>{name}</h4>
+      <h4>{coffee.name}</h4>
 
-      <p>{about}</p>
+      <p>{coffee.about}</p>
 
       <FooterContainer>
         <div>
           <span>R$ </span>
-          <strong>{formatMoney(price)}</strong>
+          <strong>{formatMoney(coffee.price)}</strong>
         </div>
 
-        <AddToCartForm id={id} name={name} src={src} alt={alt} price={price} />
+        <AddToCartForm
+          id={coffee.id}
+          name={coffee.name}
+          src={coffee.src}
+          alt={coffee.alt}
+          price={coffee.price}
+        />
       </FooterContainer>
     </CardContainer>
   )

@@ -66,6 +66,12 @@ export const GlobalStyle = createGlobalStyle`
   h5 {
     font-size: ${(props) => props.theme['--title-xs']};
   }
+
+  @media (max-width: 768px) {
+    :root {
+      font-size: 50%;
+    }
+  }
 `
 
 export const WrapperStyle = css`

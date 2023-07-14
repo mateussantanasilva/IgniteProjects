@@ -2,12 +2,13 @@
 
 import { ReactNode, createContext, useEffect, useReducer } from 'react'
 import { ShoppingCartReducer } from '@/reducers/shoppingCart/reducer'
+import { AddToCartFormProps } from '@/app/components/AddToCartForm'
 import {
   addItemToCartAction,
   changeAmountCoffeeAction,
   deleteCartItemAction,
+  resetCartAction,
 } from '@/reducers/shoppingCart/actions'
-import { AddToCartFormProps } from '@/app/components/AddToCartForm'
 
 interface ProviderProps {
   children: ReactNode
@@ -22,6 +23,7 @@ interface ShoppingCartContextType {
   addItemToCart: (cartItem: CartItem) => void
   changeAmountCoffee: (type: string, idCartItem: string) => void
   deleteCartItem: (id: string) => void
+  resetCart: () => void
 }
 
 export const ShoppingCartContext = createContext({} as ShoppingCartContextType)
@@ -59,6 +61,10 @@ export function ShoppingCartContextProvider({ children }: ProviderProps) {
     dispatchAction(deleteCartItemAction(id))
   }
 
+  function resetCart() {
+    dispatchAction(resetCartAction())
+  }
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -66,6 +72,7 @@ export function ShoppingCartContextProvider({ children }: ProviderProps) {
         addItemToCart,
         changeAmountCoffee,
         deleteCartItem,
+        resetCart,
       }}
     >
       {children}

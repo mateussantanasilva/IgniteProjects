@@ -1,6 +1,10 @@
 'use client'
 
+import { useContext } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
+import { AddressContext } from '@/contexts/AddressContext'
+import { ShoppingCartContext } from '@/contexts/ShoppingCartContext'
 import { CurrencyDollar, MapPin, Timer } from '@phosphor-icons/react'
 import {
   ContentContainer,
@@ -9,13 +13,18 @@ import {
   HeaderContainer,
   SuccessContainer,
 } from './styles'
-import { AddressContext } from '@/contexts/AddressContext'
-import { useContext } from 'react'
 
 export default function Success() {
   const { addressState } = useContext(AddressContext)
+  const { resetCart } = useContext(ShoppingCartContext)
+
+  const router = useRouter()
+  if (!addressState.cep) router.push('/')
+
   const hasComplement = addressState.complement !== ''
   const [, paymentMethodText] = addressState.paymentMethod.split(',')
+
+  resetCart()
 
   return (
     <main>

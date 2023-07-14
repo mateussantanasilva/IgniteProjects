@@ -24,7 +24,8 @@ export const CartItemContainer = styled.div`
 
   & > section {
     display: flex;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    flex: 1;
     gap: 2rem;
 
     & > img {

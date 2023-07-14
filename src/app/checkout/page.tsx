@@ -1,22 +1,15 @@
 'use client'
 
+import { useContext } from 'react'
+import { useRouter } from 'next/navigation'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { ShoppingCart } from './components/ShoppingCart'
-import { PaymentMethodButton } from './components/PaymentButton'
-import { CurrencyDollar, MapPin } from '@phosphor-icons/react'
-import {
-  FormContainer,
-  DeliveryAndPaymentContainer,
-  DeliveryContainer,
-  PaymentContainer,
-  SelectedPaymentContainer,
-  MultiInputsContainer,
-} from './styles'
-import { useRouter } from 'next/navigation'
+import { ShoppingCartContext } from '@/contexts/ShoppingCartContext'
 import { AddressContext } from '@/contexts/AddressContext'
-import { useContext } from 'react'
+import { CheckoutForm } from './components/CheckoutForm'
+import { ShoppingCart } from './components/ShoppingCart'
+import { FormContainer } from './styles'
 
 const FinalizeCheckoutFormValidationSchema = z.object({
   cep: z.string(),
@@ -33,7 +26,11 @@ type FinalizeCheckoutFormData = z.infer<
 >
 
 export default function Checkout() {
+  const { cartItemsState } = useContext(ShoppingCartContext)
   const router = useRouter()
+
+  if (cartItemsState.length === 0) router.push('/')
+
   const { finalizeCheckout } = useContext(AddressContext)
 
   const finalizeCheckoutForm = useForm<FinalizeCheckoutFormData>({
@@ -49,10 +46,11 @@ export default function Checkout() {
       paymentMethod: '',
     },
   })
-  const { handleSubmit, register } = finalizeCheckoutForm
+  const { handleSubmit } = finalizeCheckoutForm
 
   function handleFinalizeCheckout({ ...props }: FinalizeCheckoutFormData) {
     finalizeCheckout({ ...props })
+
     router.push('/success')
   }
 
@@ -60,75 +58,7 @@ export default function Checkout() {
     <main>
       <FormContainer onSubmit={handleSubmit(handleFinalizeCheckout)}>
         <FormProvider {...finalizeCheckoutForm}>
-          <DeliveryAndPaymentContainer>
-            <h5>Complete seu pedido</h5>
-
-            <DeliveryContainer>
-              <header>
-                <MapPin size={'2.2rem'} />
-
-                <div>
-                  <p>Endereço de Entrega</p>
-                  <p>Informe o endereço onde deseja receber seu pedido</p>
-                </div>
-              </header>
-
-              <div>
-                <input type="text" placeholder="CEP" {...register('cep')} />
-                <input type="text" placeholder="Rua" {...register('street')} />
-
-                <MultiInputsContainer>
-                  <input
-                    type="text"
-                    placeholder="Número"
-                    {...register('numberHouse')}
-                  />
-                  <div>
-                    <input
-                      type="text"
-                      placeholder="Complemento"
-                      {...register('complement')}
-                    />
-                    <span>Opcional</span>
-                  </div>
-                </MultiInputsContainer>
-
-                <MultiInputsContainer>
-                  <input
-                    type="text"
-                    placeholder="Bairro"
-                    {...register('neighborhood')}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Cidade"
-                    {...register('city')}
-                  />
-                  <input type="text" placeholder="UF" {...register('uf')} />
-                </MultiInputsContainer>
-              </div>
-            </DeliveryContainer>
-
-            <PaymentContainer>
-              <header>
-                <CurrencyDollar size={'2.2rem'} weight="regular" />
-
-                <div>
-                  <p>Pagamento</p>
-                  <p>
-                    O pagamento é feito na entrega. Escolha a forma que deseja
-                    pagar
-                  </p>
-                </div>
-              </header>
-
-              <SelectedPaymentContainer>
-                <PaymentMethodButton type="CreditCard" />
-                <PaymentMethodButton type="Bank" />
-                <PaymentMethodButton type="Money" />
-              </SelectedPaymentContainer>
-            </PaymentContainer>
-          </DeliveryAndPaymentContainer>
+          <CheckoutForm />
         </FormProvider>
 
         <ShoppingCart />

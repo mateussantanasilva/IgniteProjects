@@ -1,14 +1,14 @@
 import Image from 'next/image'
+import { useContext } from 'react'
+import { formatMoney } from '@/utils/formatMoney'
+import { CartItem, ShoppingCartContext } from '@/contexts/ShoppingCartContext'
+import { Counter } from '../Counter'
 import { Trash } from '@phosphor-icons/react'
 import {
   CartItemDivisor,
   CartItemContainer,
   ItemInformationContainer,
 } from './styles'
-import { CartItem, ShoppingCartContext } from '@/contexts/ShoppingCartContext'
-import { Counter } from '../Counter'
-import { useContext } from 'react'
-import { formatMoney } from '@/utils/formatMoney'
 
 interface CartItemProps {
   coffee: CartItem

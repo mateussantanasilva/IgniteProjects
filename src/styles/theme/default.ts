@@ -1,4 +1,6 @@
 export const defaultTheme = {
+  '--header-height': '10.4rem',
+
   // Product
   '--yellow-dark': '#C47F17',
   '--yellow': '#DBAC2C',

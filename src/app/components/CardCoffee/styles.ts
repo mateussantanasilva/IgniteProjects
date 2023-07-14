@@ -5,15 +5,19 @@ export const CardContainer = styled.article`
   flex-direction: column;
   align-items: center;
 
-  padding: 2rem;
   max-width: 25.6rem;
+  padding: 2rem;
   background: ${(props) => props.theme['--base-card']};
   border-radius: 0.6rem 3.6rem;
 
   img {
-    margin-top: -20%;
+    position: relative;
+    top: -4.5rem;
+    z-index: 1;
+
     width: 12rem;
     height: auto;
+    margin-bottom: calc(-12rem + 7.5rem);
   }
 
   header {

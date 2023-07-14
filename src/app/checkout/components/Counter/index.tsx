@@ -1,7 +1,7 @@
-import { Minus, Plus } from '@phosphor-icons/react'
-import { CounterContainer } from './styles'
 import { useContext } from 'react'
 import { ShoppingCartContext } from '@/contexts/ShoppingCartContext'
+import { Minus, Plus } from '@phosphor-icons/react'
+import { CounterContainer } from './styles'
 
 interface CounterProps {
   id: string

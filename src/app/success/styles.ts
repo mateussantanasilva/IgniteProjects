@@ -3,7 +3,7 @@ import { WrapperStyle } from '../globals'
 
 export const SuccessContainer = styled.section`
   ${WrapperStyle}
-  margin-top: 8rem;
+  margin-top: calc(8rem + ${(props) => props.theme['--header-height']});
 `
 
 export const HeaderContainer = styled.header`
@@ -25,8 +25,15 @@ export const ContentContainer = styled.div`
   align-items: center;
 
   img {
-    width: 49.2rem;
+    max-width: 49.2rem;
+    width: 50%;
     height: auto;
+  }
+
+  @media (max-width: 550px) {
+    img {
+      display: none;
+    }
   }
 `
 

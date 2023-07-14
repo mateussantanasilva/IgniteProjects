@@ -6,13 +6,25 @@ interface LinkContainerProps {
 }
 
 export const HeaderContainer = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 10;
 
-  ${WrapperStyle}
+  width: 100vw;
+  background: ${(props) => props.theme['--backgroud']};
 
-  padding-block: 3.2rem;
+  & > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-block: 3.2rem;
+    ${WrapperStyle}
+
+    & > a {
+      line-height: 0;
+    }
+  }
 `
 
 export const NavContainer = styled.nav`

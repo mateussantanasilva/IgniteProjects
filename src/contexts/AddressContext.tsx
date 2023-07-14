@@ -1,8 +1,8 @@
 'use client'
 
-import { finalizeCheckoutAction } from '@/reducers/address/actions'
-import { AddressReducer } from '@/reducers/address/reducer'
 import { ReactNode, createContext, useReducer } from 'react'
+import { AddressReducer } from '@/reducers/address/reducer'
+import { finalizeCheckoutAction } from '@/reducers/address/actions'
 
 interface AddressContextProviderProps {
   children: ReactNode

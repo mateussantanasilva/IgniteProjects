@@ -44,6 +44,7 @@ export function CounterInput({
         {...register(`amountCoffee`, {
           valueAsNumber: true,
         })}
+        required
       />
       <button type="button" onClick={handleIncreaseAmount}>
         <Plus size={'1.4rem'} weight={'bold'} />
