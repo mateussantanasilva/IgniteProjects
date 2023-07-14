@@ -29,7 +29,8 @@ export default function Checkout() {
   const { cartItemsState } = useContext(ShoppingCartContext)
   const router = useRouter()
 
-  if (cartItemsState.length === 0) router.push('/')
+  if (typeof window !== 'undefined' && cartItemsState.length === 0)
+    router.push('/')
 
   const { finalizeCheckout } = useContext(AddressContext)
 
@@ -51,7 +52,7 @@ export default function Checkout() {
   function handleFinalizeCheckout({ ...props }: FinalizeCheckoutFormData) {
     finalizeCheckout({ ...props })
 
-    router.push('/success')
+    if (typeof window !== 'undefined') router.push('/success')
   }
 
   return (

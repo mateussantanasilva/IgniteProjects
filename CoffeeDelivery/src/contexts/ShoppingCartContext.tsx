@@ -33,9 +33,12 @@ export function ShoppingCartContextProvider({ children }: ProviderProps) {
     ShoppingCartReducer,
     [],
     (initialState) => {
-      const storedStateAsJSON = localStorage
-        ? localStorage.getItem('@coffee-delivery:cart-items-state-1.0.0')
-        : null
+      let storedStateAsJSON
+      if (typeof localStorage !== 'undefined') {
+        storedStateAsJSON = localStorage.getItem(
+          '@coffee-delivery:cart-items-state-1.0.0',
+        )
+      }
 
       if (storedStateAsJSON) return JSON.parse(storedStateAsJSON)
 

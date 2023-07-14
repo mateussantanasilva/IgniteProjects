@@ -19,7 +19,7 @@ export default function Success() {
   const { resetCart } = useContext(ShoppingCartContext)
 
   const router = useRouter()
-  if (!addressState.cep) router.push('/')
+  if (typeof window !== 'undefined' && !addressState.cep) router.push('/')
 
   const hasComplement = addressState.complement !== ''
   const [, paymentMethodText] = addressState.paymentMethod.split(',')
