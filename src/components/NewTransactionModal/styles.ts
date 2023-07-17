@@ -48,6 +48,11 @@ export const Content = styled(Dialog.Content)`
       }
     }
 
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
     button[type='submit'] {
       margin-top: 4rem;
       padding: 1.6rem;
@@ -60,7 +65,12 @@ export const Content = styled(Dialog.Content)`
       border-radius: 6px;
       transition: background 0.2s;
 
-      &:hover {
+      &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+      &:not(:disabled):hover {
         background: ${(props) => props.theme['green-300']};
       }
     }
