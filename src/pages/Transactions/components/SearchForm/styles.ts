@@ -55,4 +55,14 @@ export const SearchFormContainer = styled.form`
       }
     }
   }
+
+  @media (max-width: 425px) {
+    gap: 0.8rem;
+
+    button {
+      gap: 0;
+      padding: 1.6rem;
+      font-size: 0;
+    }
+  }
 `

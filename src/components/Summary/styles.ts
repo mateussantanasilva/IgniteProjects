@@ -13,6 +13,10 @@ export const SummaryContainer = styled.section`
   margin: 0 auto;
   margin-top: -8.2rem;
   padding-inline: 1rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const SummaryCard = styled.div<SummaryCardProps>`

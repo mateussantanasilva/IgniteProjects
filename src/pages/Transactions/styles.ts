@@ -31,6 +31,53 @@ export const TransactionsTable = styled.table`
       border-bottom-right-radius: 6px;
     }
   }
+
+  @media (max-width: 768px) {
+    tbody {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+
+      tr {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        td {
+          padding: 0 2rem;
+
+          &:first-child {
+            padding-top: 2rem;
+            border-radius: 6px 6px 0 0;
+
+            color: ${(props) => props.theme['gray-300']};
+          }
+
+          &:nth-child(2) {
+            font-size: 2rem;
+            font-weight: 700;
+            padding-bottom: 1.2rem;
+          }
+
+          &:nth-child(3) {
+            padding-bottom: 2rem;
+            border-radius: 0 0 6px 6px;
+
+            color: ${(props) => props.theme['gray-500']};
+          }
+
+          &:last-child {
+            position: absolute;
+            top: 65%;
+            right: 0;
+
+            background: transparent;
+            color: ${(props) => props.theme['gray-500']};
+          }
+        }
+      }
+    }
+  }
 `
 
 export const PriceHighlight = styled.span<PriceHighlightProps>`

@@ -24,7 +24,7 @@ const newTransactionFormSchema = z.object({
 type newTransactionFormInputs = z.infer<typeof newTransactionFormSchema>
 
 export function NewTransactionModal() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [open, setOpen] = useState(false)
 
   const createTransaction = useContextSelector(
     TransactionsContext,
@@ -46,21 +46,17 @@ export function NewTransactionModal() {
     // },
   })
 
-  function changeModalState() {
-    setIsModalOpen(!isModalOpen)
-  }
-
   async function handleCreateNewTransaction(data: newTransactionFormInputs) {
     const { description, type, price, category } = data
 
     await createTransaction({ description, type, price, category })
 
     reset()
-    changeModalState()
+    setOpen(false)
   }
 
   return (
-    <Dialog.Root onOpenChange={changeModalState} open={isModalOpen}>
+    <Dialog.Root onOpenChange={setOpen} open={open}>
       {/* use existing button - use only with button */}
       <Dialog.Trigger asChild>
         <NewTransactionButton>Nova Transação</NewTransactionButton>

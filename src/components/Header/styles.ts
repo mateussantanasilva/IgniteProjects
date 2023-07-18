@@ -13,4 +13,9 @@ export const HeaderContent = styled.div`
   width: min(112rem, 100%);
   margin: 0 auto;
   padding-inline: 1rem;
+
+  @media (max-width: 425px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
 `

@@ -29,4 +29,10 @@ export const GlobalStyle = createGlobalStyle`
     font: 400 1.6rem Roboto, sans-serif; 
     line-height: 160%;
   }
+
+  @media (max-width: 768px) {
+    :root {
+      font-size: 54.6876%; // 16px -> 14px
+    }
+  }
 `
