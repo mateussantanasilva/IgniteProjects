@@ -6,7 +6,7 @@ interface PriceHighlightProps {
 
 export const TransactionsContainer = styled.main`
   width: min(112rem, 100%);
-  margin: 6.4rem auto 0;
+  margin: 6.4rem auto 1rem;
   padding-inline: 1rem;
 `
 
