@@ -2,12 +2,24 @@ import { ArrowCircleDown, ArrowCircleUp, CurrencyDollar } from 'phosphor-react'
 import { SummaryCard, SummaryContainer } from './styles'
 import { priceFormatter } from '../../utils/formatter'
 import { useSummary } from '../../hooks/useSummary'
+import 'swiper/css'
 
 export function Summary() {
   const summary = useSummary()
 
   return (
-    <SummaryContainer>
+    <SummaryContainer
+      slidesPerView="auto"
+      spaceBetween={32}
+      breakpoints={{
+        768: {
+          spaceBetween: 32,
+        },
+        250: {
+          spaceBetween: 16, // defines when >= 250
+        },
+      }}
+    >
       <SummaryCard>
         <header>
           <span>Entradas</span>

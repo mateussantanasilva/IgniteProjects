@@ -1,10 +1,12 @@
+/* eslint-disable prettier/prettier */
 import styled, { css } from 'styled-components'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 interface SummaryCardProps {
   variant?: 'green'
 }
 
-export const SummaryContainer = styled.section`
+export const SummaryContainer = styled(Swiper)`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3.2rem;
@@ -17,10 +19,15 @@ export const SummaryContainer = styled.section`
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
   }
+
+  @media (max-width: 425px) {
+    gap: 1.6rem;
+  }
 `
 
-export const SummaryCard = styled.div<SummaryCardProps>`
+export const SummaryCard = styled(SwiperSlide) <SummaryCardProps>`
   padding: 2.4rem;
+  max-width: 35.2rem;
   background: ${(props) => props.theme['gray-600']};
   border-radius: 6px;
 
@@ -45,4 +52,8 @@ export const SummaryCard = styled.div<SummaryCardProps>`
     css`
       background: ${props.theme['green-700']};
     `}
+
+  @media (max-width: 425px) {
+    max-width: 28rem;
+  }
 `
