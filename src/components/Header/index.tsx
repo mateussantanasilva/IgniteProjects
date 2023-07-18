@@ -1,6 +1,4 @@
-import * as Dialog from '@radix-ui/react-dialog'
-
-import { HeaderContainer, HeaderContent, NewTransactionButton } from './styles'
+import { HeaderContainer, HeaderContent } from './styles'
 import logoIgnite from '../../../public/logo.svg'
 import { NewTransactionModal } from '../NewTransactionModal'
 
@@ -14,15 +12,7 @@ export function Header() {
         />
 
         {/* context */}
-        <Dialog.Root>
-          {/* use existing button - use only with button */}
-          <Dialog.Trigger asChild>
-            <NewTransactionButton>Nova Transação</NewTransactionButton>
-          </Dialog.Trigger>
-
-          {/* use 'portal' makes the element independent of any parent (MODAL) */}
-          <NewTransactionModal />
-        </Dialog.Root>
+        <NewTransactionModal />
       </HeaderContent>
     </HeaderContainer>
   )
