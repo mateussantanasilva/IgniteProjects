@@ -5,6 +5,7 @@ import { Nunito } from 'next/font/google'
 import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from '@/styles/themes/default'
 import { GlobalStyle } from './globals'
+import { Header } from '@/components/Header'
 
 const nunito = Nunito({ subsets: ['latin'], weight: ['400', '700'] })
 
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body className={nunito.className}>
         <ThemeProvider theme={defaultTheme}>
           <GlobalStyle />
+          <Header />
           {children}
         </ThemeProvider>
       </body>
