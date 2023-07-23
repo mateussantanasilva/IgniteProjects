@@ -1,0 +1,36 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "description": "Desenvolvimento de site",
+      "type": "income",
+      "price": 12000,
+      "category": "Venda",
+      "createdAt": "2023-07-17T15:59:23.277Z"
+    },
+    {
+      "id": 2,
+      "description": "Hambúrguer",
+      "type": "outcome",
+      "price": 60,
+      "category": "Alimentação",
+      "createdAt": "2023-07-17T15:10:23.277Z"
+    },
+    {
+      "id": 3,
+      "description": "RocketONE",
+      "type": "outcome",
+      "price": 1900,
+      "category": "Educação",
+      "createdAt": "2023-07-17T15:40:23.277Z"
+    },
+    {
+      "description": "Café da manhã",
+      "type": "outcome",
+      "price": 55,
+      "category": "Alimentação",
+      "createdAt": "2023-07-17T21:32:23.916Z",
+      "id": 4
+    }
+  ]
+}
