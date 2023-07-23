@@ -1,12 +1,5 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-import {
-  PostContent,
-  PostInfoContainer,
-  PostInfoContent,
-  PostInfoPresentation,
-} from './styles'
 import ReactMarkdown from 'react-markdown'
 import { Post } from '@/hooks/usePosts'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
@@ -18,10 +11,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
-import { formatDistanceToNow } from 'date-fns'
-import { ptBR } from 'date-fns/locale'
 import { apiGithub } from '@/libs/axios'
 import { useQuery } from 'react-query'
+import { formatDate } from '@/libs/formatDate'
+import {
+  PostContent,
+  PostInfoContainer,
+  PostInfoContent,
+  PostInfoPresentation,
+} from './styles'
 
 interface PostProps {
   params: {
@@ -30,8 +28,6 @@ interface PostProps {
 }
 
 export default function Post({ params }: PostProps) {
-  const router = useRouter()
-
   const { data: currentPost } = useQuery<Post>('currentPostKey', async () => {
     const userAgent = process.env.NEXT_PUBLIC_USER_AGENT
     const repository = process.env.NEXT_PUBLIC_REPOSITORY
@@ -43,15 +39,9 @@ export default function Post({ params }: PostProps) {
     return response.data
   })
 
-  if (!currentPost) return router.back()
+  if (!currentPost) return
 
-  const createdAtDistanceToNow = formatDistanceToNow(
-    new Date(currentPost.created_at),
-    {
-      addSuffix: true,
-      locale: ptBR,
-    },
-  )
+  const createdAtDistanceToNow = formatDate(currentPost.created_at)
 
   const hasOnlyOneComment = currentPost.comments === 1
 

@@ -14,6 +14,9 @@ export function SearchForm() {
 
   function handleSearchPost(event: ChangeEvent<HTMLInputElement>) {
     const inputValue = event.target.value
+
+    if (inputValue === '') return
+
     const userAgent = process.env.NEXT_PUBLIC_USER_AGENT
     const repository = process.env.NEXT_PUBLIC_REPOSITORY
 

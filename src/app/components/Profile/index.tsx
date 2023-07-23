@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { ProfileContainer, ProfileContent, ProfileInformation } from './styles'
 import Link from 'next/link'

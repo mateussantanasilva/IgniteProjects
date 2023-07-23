@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const PostList = styled.main`
+export const PostListContainer = styled.main`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: stretch;

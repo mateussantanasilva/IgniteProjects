@@ -37,8 +37,9 @@ export const PostItemContainer = styled.article`
         min-width: max-content;
       }
 
-      @media (max-width: 320px) {
+      @media (max-width: 425px) {
         flex-direction: column;
+        align-items: flex-start;
         gap: 1rem;
       }
     }
