@@ -1,20 +1,34 @@
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
+import { formatDistanceToNow } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
 import { PostItemContainer } from './styles'
 
-export function PostItem() {
+interface PostItemProps {
+  id: number
+  title: string
+  body: string
+  created_at: string
+}
+
+export function PostItem({ id, title, body, created_at }: PostItemProps) {
+  const summaryTitle = title.substring(0, 50)
+  const summaryContent = body.substring(0, 175).concat('...')
+
+  const createdAtDistanceToNow = formatDistanceToNow(new Date(created_at), {
+    addSuffix: true,
+    locale: ptBR,
+  })
+
   return (
     <PostItemContainer>
-      <Link href={'/post'}>
+      <Link href={`/post/${id}`}>
         <header>
-          <h3>JavaScript data types and data structures</h3>
-          <span>Há 1 dia</span>
+          <h3>{summaryTitle}</h3>
+          <span>{createdAtDistanceToNow}</span>
         </header>
 
-        <p>
-          Programming languages all have built-in data structures, but these
-          often differ from one language to another. This article attempts to
-          list the built-in data structures available in..
-        </p>
+        <ReactMarkdown>{summaryContent}</ReactMarkdown>
       </Link>
     </PostItemContainer>
   )

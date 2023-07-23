@@ -7,6 +7,7 @@ export const PostItemContainer = styled.article`
     flex: 1 26rem;
     gap: 2rem;
 
+    height: 100%;
     padding: 3.2rem;
     background: ${(props) => props.theme['--base-post']};
     border: 2px solid ${(props) => props.theme['--base-post']};
@@ -30,9 +31,10 @@ export const PostItemContainer = styled.article`
       }
 
       span {
+        text-align: right;
         font-size: 1.4rem;
         color: ${(props) => props.theme['--base-span']};
-        min-width: fit-content;
+        min-width: max-content;
       }
 
       @media (max-width: 320px) {

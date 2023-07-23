@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { HeaderContainer } from './styles'
 import headerBackgroud from '@/assets/header-background.svg'
