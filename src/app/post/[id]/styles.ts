@@ -73,3 +73,16 @@ export const PostInfoPresentation = styled.div`
     }
   }
 `
+
+export const PostContent = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+
+  width: min(80rem, 96%);
+  margin: 4rem auto 2rem;
+
+  img {
+    max-width: 100%;
+  }
+`
