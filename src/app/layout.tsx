@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import { globalStyles } from '@/styles/global'
 import { getCssText } from '@/styles'
+import { Header } from '@/components/Header'
 
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700'] })
 
@@ -25,7 +26,10 @@ export default function RootLayout({
       <head>
         <style>{getCssText()}</style>
       </head>
-      <body className={roboto.className}>{children}</body>
+      <body className={roboto.className}>
+        <Header />
+        {children}
+      </body>
     </html>
   )
 }
