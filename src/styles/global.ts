@@ -15,12 +15,16 @@ export const globalStyles = globalCss({
   },
 
   body: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    minHeight: '100vh',
     backgroundColor: '$gray900',
     '-webkit-font-smoothing': 'antialiased',
   },
 
   'body, input, textarea, button': {
-    fontSize: '1.6rem',
+    fontSize: '$md',
     fontWeight: 400,
     lineHeight: '160%',
     color: '$gray100',
