@@ -1,65 +1,35 @@
-'use client'
+import Stripe from 'stripe'
+import { stripe } from '@/libs/stripe'
+import { Carousel } from './components/Carousel'
 
-import Image from 'next/image'
-import { useKeenSlider } from 'keen-slider/react'
-import { HomeContainer, Product } from './styles'
-import 'keen-slider/keen-slider.min.css'
+export const revalidate = 60 * 60 // revalidate data after 1 hour (in seconds)
 
-import tshirt1 from '@/assets/tshirt-1.png'
-import tshirt2 from '@/assets/tshirt-2.png'
-import tshirt3 from '@/assets/tshirt-3.png'
-
-export default function Home() {
-  const [sliderRef] = useKeenSlider({
-    slides: {
-      perView: 1.89,
-      spacing: 48,
-    },
+async function getProducts() {
+  const response = await stripe.products.list({
+    expand: ['data.default_price'], // need the data before for arrays
   })
 
-  return (
-    <HomeContainer ref={sliderRef} className="keen-slider">
-      <Product className="keen-slider__slide">
-        <Image
-          src={tshirt1}
-          alt="Camiseta da rocketseat"
-          width={520}
-          height={480}
-        />
+  const products = response.data.map((product) => {
+    const price = product.default_price as Stripe.Price
+    const convertedPrice = (price.unit_amount as number) / 100
+    const formattedPrice = new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    }).format(convertedPrice)
 
-        <footer>
-          <strong>Camiseta Beyond the Limits</strong>
-          <span>R$ 79,90</span>
-        </footer>
-      </Product>
+    return {
+      id: product.id,
+      name: product.name,
+      imageUrl: product.images[0],
+      price: formattedPrice,
+    }
+  })
 
-      <Product className="keen-slider__slide">
-        <Image
-          src={tshirt2}
-          alt="Camiseta da rocketseat"
-          width={520}
-          height={480}
-        />
+  return products
+}
 
-        <footer>
-          <strong>Camiseta Beyond the Limits</strong>
-          <span>R$ 79,90</span>
-        </footer>
-      </Product>
+export default async function Home() {
+  const products = await getProducts()
 
-      <Product className="keen-slider__slide">
-        <Image
-          src={tshirt3}
-          alt="Camiseta da rocketseat"
-          width={520}
-          height={480}
-        />
-
-        <footer>
-          <strong>Camiseta Beyond the Limits</strong>
-          <span>R$ 79,90</span>
-        </footer>
-      </Product>
-    </HomeContainer>
-  )
+  return <Carousel products={products} />
 }

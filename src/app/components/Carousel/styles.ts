@@ -1,11 +1,12 @@
 import { styled } from '@/styles'
 
-export const HomeContainer = styled('main', {
+export const CarouselContainer = styled('main', {
   display: 'flex',
 
   width: '100%',
   maxWidth: 'calc(100vw - ((100vw - 118rem) / 2))',
   marginLeft: 'auto',
+  marginBottom: '2rem',
 })
 
 export const Product = styled('a', {
