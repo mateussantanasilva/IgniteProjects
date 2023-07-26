@@ -26,10 +26,15 @@ export function Carousel({ products }: CarouselProps) {
     <CarouselContainer ref={sliderRef} className="keen-slider">
       {products.map((product) => {
         return (
-          <Product key={product.id} className="keen-slider__slide">
+          <Product
+            key={product.id}
+            href={`/product/${product.id}`}
+            prefetch={false} // prefetch works only on hover
+            className="keen-slider__slide"
+          >
             <Image
               src={product.imageUrl}
-              alt="Camiseta da rocketseat"
+              alt={product.name}
               width={520}
               height={480}
             />

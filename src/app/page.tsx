@@ -1,8 +1,13 @@
 import Stripe from 'stripe'
 import { stripe } from '@/libs/stripe'
 import { Carousel } from './components/Carousel'
+import { Metadata } from 'next'
 
-export const revalidate = 60 * 60 // revalidate data after 1 hour (in seconds)
+export const metadata: Metadata = {
+  title: 'Home | Ignite Shop',
+}
+
+export const revalidate = 60 * 60 * 1 // SSG: revalidate data after 1 hour (in seconds)
 
 async function getProducts() {
   const response = await stripe.products.list({

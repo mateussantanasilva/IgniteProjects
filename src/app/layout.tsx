@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
-import { globalStyles } from '@/styles/global'
-import { getCssText } from '@/styles'
-import { Header } from '@/components/Header'
+import { ServerStylesheet } from '@/components/ServerStylesheet'
 
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700'] })
 
@@ -14,8 +12,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Mateus Santana' }],
 }
 
-globalStyles() // avoid unnecessary rendering
-
 export default function RootLayout({
   children,
 }: {
@@ -23,12 +19,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <head>
-        <style>{getCssText()}</style>
-      </head>
       <body className={roboto.className}>
-        <Header />
-        {children}
+        <ServerStylesheet>{children}</ServerStylesheet>
       </body>
     </html>
   )
