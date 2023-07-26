@@ -1,4 +1,5 @@
 import { styled } from '@/styles'
+import Link from 'next/link'
 
 export const CarouselContainer = styled('main', {
   display: 'flex',
@@ -9,7 +10,7 @@ export const CarouselContainer = styled('main', {
   marginBottom: '2rem',
 })
 
-export const Product = styled('a', {
+export const Product = styled(Link, {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -46,6 +47,7 @@ export const Product = styled('a', {
 
     strong: {
       fontSize: '$lg',
+      color: '$gray100',
     },
 
     span: {
