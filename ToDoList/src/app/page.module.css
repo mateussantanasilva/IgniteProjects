@@ -1,0 +1,60 @@
+.main {
+  margin-inline: 1rem;
+}
+
+.wrapper {
+  width: min(46rem, 100%);
+  margin-inline: auto;
+}
+
+.wrapper header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 1.5rem;
+}
+
+header>.tasksCreated,
+header>.tasksDone {
+  display: flex;
+  gap: .5rem;
+}
+
+.tasksCreated strong,
+.tasksDone strong {
+  font-size: .875rem;
+  line-height: normal;
+}
+
+.tasksCreated strong {
+  color: var(--blue);
+}
+
+.tasksDone strong {
+  color: var(--purple);
+}
+
+.tasksCreated span,
+.tasksDone span {
+  color: var(--gray-200);
+  font-size: .75rem;
+  font-weight: 700;
+  line-height: normal;
+
+  background: var(--gray-400);
+  padding: .12rem .8rem;
+  border-radius: 999px;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+@media (max-width: 375px) {
+  .wrapper header{
+    flex-direction: column;
+    gap: .5rem;
+  }
+}
