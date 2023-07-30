@@ -3,11 +3,21 @@ import Stripe from 'stripe'
 import { redirect } from 'next/navigation'
 import { Metadata } from 'next'
 import { SuccessContent } from './components/SuccessContent'
+import { Header } from '@/components/Header'
 
 interface SuccessProps {
   searchParams: {
     session_id: string
   }
+}
+
+export interface PurchaseData {
+  customerName: string
+  products: {
+    id: string
+    name: string
+    imageUrl: string
+  }[]
 }
 
 export const metadata: Metadata = {
@@ -25,23 +35,32 @@ async function getCheckoutSessionId(session_id: string) {
   })
 
   const customerName = session.customer_details?.name
-  const product = session.line_items?.data[0].price?.product as Stripe.Product
+
+  const products = session.line_items?.data.map((item) => {
+    const product = item.price?.product as Stripe.Product
+
+    return {
+      id: product.id,
+      name: product.name,
+      imageUrl: product.images[0],
+    }
+  })
 
   return {
     customerName,
-    product: {
-      name: product.name,
-      imageUrl: product.images[0],
-    },
+    products,
   }
 }
 
 export default async function Success({ searchParams }: SuccessProps) {
-  const { customerName, product } = await getCheckoutSessionId(
-    searchParams.session_id,
-  )
+  const purchaseData = await getCheckoutSessionId(searchParams.session_id)
+
+  if (!purchaseData) redirect('/')
 
   return (
-    <SuccessContent customerName={customerName as string} product={product} />
+    <>
+      <Header justLogo />
+      <SuccessContent purchaseData={purchaseData as PurchaseData} />
+    </>
   )
 }
