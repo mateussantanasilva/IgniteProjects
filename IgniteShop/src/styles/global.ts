@@ -15,10 +15,6 @@ export const globalStyles = globalCss({
   },
 
   body: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    minHeight: '100vh',
     backgroundColor: '$gray900',
     '-webkit-font-smoothing': 'antialiased',
   },
@@ -28,5 +24,11 @@ export const globalStyles = globalCss({
     fontWeight: 400,
     lineHeight: '160%',
     color: '$gray100',
+  },
+
+  '@media (max-width: 768px)': {
+    ':root': {
+      fontSize: '54.6876%', // 16px -> 14px
+    },
   },
 })
