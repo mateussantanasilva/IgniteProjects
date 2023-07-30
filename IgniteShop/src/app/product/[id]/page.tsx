@@ -2,6 +2,7 @@ import { stripe } from '@/libs/stripe'
 import Stripe from 'stripe'
 import { Metadata } from 'next'
 import { ProductDetails } from './components/ProductDetails'
+import { Header } from '@/components/Header'
 
 interface ProductProps {
   params: {
@@ -21,19 +22,16 @@ async function getProduct(productId: string) {
   })
 
   const price = product.default_price as Stripe.Price
-  const convertedPrice = (price.unit_amount as number) / 100
-  const formattedPrice = new Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  }).format(convertedPrice)
 
   return {
     product: {
+      sku: product.id,
       id: product.id,
       defaultPriceId: price.id,
       name: product.name,
-      imageUrl: product.images[0],
-      price: formattedPrice,
+      image: product.images[0],
+      currency: price.currency,
+      price: price.unit_amount as number,
       description: product.description as string,
     },
   }
@@ -42,5 +40,10 @@ async function getProduct(productId: string) {
 export default async function Product({ params }: ProductProps) {
   const { product } = await getProduct(params.id)
 
-  return <ProductDetails product={product} />
+  return (
+    <>
+      <Header />
+      <ProductDetails product={product} />
+    </>
+  )
 }

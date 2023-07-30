@@ -1,42 +1,28 @@
 'use client'
 
-import axios from 'axios'
+import { ProductType } from '@/app/page'
 import { ButtonContainer } from './styles'
-import { useState } from 'react'
+import { useShoppingCart } from 'use-shopping-cart'
 
 interface BuyProductButtonProps {
-  defaultPriceId: string
+  product: ProductType
 }
 
-export function BuyProductButton({ defaultPriceId }: BuyProductButtonProps) {
-  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] =
-    useState(false)
+export function BuyProductButton({ product }: BuyProductButtonProps) {
+  const { addItem, cartDetails } = useShoppingCart()
 
-  async function handleBuyProduct() {
-    try {
-      setIsCreatingCheckoutSession(true)
+  const sameItemAlreadyExistsInBag = cartDetails && product.id in cartDetails
 
-      // same baseUrl
-      const response = await axios.post('/api/checkout', {
-        priceId: defaultPriceId, // body
-      })
-
-      const { checkoutUrl } = response.data
-
-      window.location.href = checkoutUrl // use 'router.push' if you want to redirect to internal route
-    } catch (error) {
-      setIsCreatingCheckoutSession(false)
-
-      console.error(error)
-    }
+  function handleAddItemToBag() {
+    addItem(product)
   }
 
   return (
     <ButtonContainer
-      onClick={handleBuyProduct}
-      disabled={isCreatingCheckoutSession}
+      onClick={handleAddItemToBag}
+      disabled={sameItemAlreadyExistsInBag || false}
     >
-      Comprar agora
+      Colocar na sacola
     </ButtonContainer>
   )
 }

@@ -3,24 +3,24 @@
 import Image from 'next/image'
 import { BuyProductButton } from '../BuyProductButton'
 import { ProductContainer, ImageContainer, DetailsContainer } from './styles'
+import { ProductType } from '@/app/page'
+import { formatCurrencyString } from 'use-shopping-cart'
 
 interface ProductDetailsProps {
-  product: {
-    id: string
-    defaultPriceId: string
-    name: string
-    imageUrl: string
-    price: string
-    description: string
-  }
+  product: ProductType
 }
 
 export function ProductDetails({ product }: ProductDetailsProps) {
+  const formattedPrice = formatCurrencyString({
+    value: product.price,
+    currency: 'BRL',
+  })
+
   return (
     <ProductContainer>
       <ImageContainer>
         <Image
-          src={product.imageUrl}
+          src={product.image}
           alt={product.name}
           width={520}
           height={480}
@@ -29,11 +29,12 @@ export function ProductDetails({ product }: ProductDetailsProps) {
 
       <DetailsContainer>
         <h1>{product.name}</h1>
-        <span>{product.price}</span>
+        <span>{formattedPrice}</span>
 
         <p>{product.description}</p>
 
-        <BuyProductButton defaultPriceId={product.defaultPriceId} />
+        {/*  defaultPriceId={product.defaultPriceId} */}
+        <BuyProductButton product={product} />
       </DetailsContainer>
     </ProductContainer>
   )
