@@ -4,7 +4,6 @@ import { ReactNode } from 'react'
 import { useServerInsertedHTML } from 'next/navigation'
 import { getCssText } from '@/styles'
 import { globalStyles } from '@/styles/global'
-import { Header } from '../Header'
 
 interface ServerStylesheetProps {
   children: ReactNode
@@ -24,10 +23,5 @@ export function ServerStylesheet({ children }: ServerStylesheetProps) {
     }
   })
 
-  return (
-    <>
-      <Header />
-      {children}
-    </>
-  )
+  return <>{children}</>
 }

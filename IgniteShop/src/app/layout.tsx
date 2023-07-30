@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import { ServerStylesheet } from '@/components/ServerStylesheet'
+import { CartContextProvider } from '@/contexts/CartContext'
 
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700'] })
 
@@ -20,7 +21,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={roboto.className}>
-        <ServerStylesheet>{children}</ServerStylesheet>
+        <CartContextProvider>
+          <ServerStylesheet>{children}</ServerStylesheet>
+        </CartContextProvider>
       </body>
     </html>
   )
