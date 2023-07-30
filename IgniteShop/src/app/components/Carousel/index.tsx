@@ -4,44 +4,76 @@ import Image from 'next/image'
 import { useKeenSlider } from 'keen-slider/react'
 import { CarouselContainer, Product } from './styles'
 import 'keen-slider/keen-slider.min.css'
+import Link from 'next/link'
+import { ShoppingBagButton } from '../ShoppingBagButton'
+import { ProductType } from '@/app/page'
+import { formatCurrencyString } from 'use-shopping-cart'
 
 interface CarouselProps {
-  products: {
-    id: string
-    name: string
-    imageUrl: string
-    price: string
-  }[]
+  products: ProductType[]
 }
 
 export function Carousel({ products }: CarouselProps) {
   const [sliderRef] = useKeenSlider({
-    slides: {
-      perView: 1.9,
-      spacing: 48,
+    slides: () => [
+      {
+        size: 0.465,
+        spacing: 0.032,
+      },
+      {
+        size: 0.465,
+        spacing: 0.032,
+      },
+      {
+        size: 0.465,
+        spacing: 0.032,
+      },
+      {
+        size: 0.465,
+        origin: 0.275,
+      },
+    ],
+    breakpoints: {
+      '(max-width: 768px)': {
+        slides: {
+          perView: 1.25,
+          spacing: 20,
+        },
+      },
+      '(max-width: 425px)': {
+        slides: {
+          perView: 1,
+          spacing: 20,
+        },
+      },
     },
   })
 
   return (
     <CarouselContainer ref={sliderRef} className="keen-slider">
       {products.map((product) => {
+        const formattedPrice = formatCurrencyString({
+          value: product.price,
+          currency: 'BRL',
+        })
+
         return (
-          <Product
-            key={product.id}
-            href={`/product/${product.id}`}
-            prefetch={false} // prefetch works only on hover
-            className="keen-slider__slide"
-          >
+          <Product key={product.id} className="keen-slider__slide">
             <Image
-              src={product.imageUrl}
+              src={product.image}
               alt={product.name}
               width={520}
               height={480}
             />
 
             <footer>
-              <strong>{product.name}</strong>
-              <span>{product.price}</span>
+              {/* prefetch works only on hover */}
+              <Link href={`/product/${product.id}`} prefetch={false}>
+                <strong>{product.name}</strong>
+                <span>{formattedPrice}</span>
+              </Link>
+
+              <ShoppingBagButton product={product} />
             </footer>
           </Product>
         )
