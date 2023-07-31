@@ -21,7 +21,7 @@ export interface PurchaseData {
 }
 
 export const metadata: Metadata = {
-  title: 'Compra efetuada | Ignite Shop',
+  title: 'Compra efetuada',
   robots: {
     index: false, // out of any indexing
   },

@@ -11,7 +11,7 @@ interface ProductProps {
 }
 
 export const metadata: Metadata = {
-  title: 'Detalhes do Produto | Ignite Shop',
+  title: 'Detalhes do Produto',
 }
 
 export const revalidate = 60 * 60 * 1 // SSG: revalidate data after 1 hour (in seconds)

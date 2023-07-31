@@ -6,7 +6,10 @@ import { CartContextProvider } from '@/contexts/CartContext'
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700'] })
 
 export const metadata: Metadata = {
-  title: 'Ignite Shop',
+  title: {
+    default: 'Ignite Shop',
+    template: '%s | Ignite Shop', // applies less to the house
+  },
   description:
     'Ignite Shop é uma aplicação web para compras de produtos originais da Rocketseat.',
   keywords: ['Ignite', 'Shop', 'Next.js', 'StitchesJS', 'produtos'],
