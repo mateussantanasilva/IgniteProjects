@@ -28,13 +28,13 @@ Estes projetos foram desenvolvidos com tecnologias como:
 
 | Nome             | Descrição                                                                            | Acesse Online                                           | Repositório                                                                                           |
 |------------------|--------------------------------------------------------------------------------------|-------------------------------------------------------- |-------------------------------------------------------------------------------------------------------|
-| Ignite Shop      | E-commerce para compras de produtos originais da Rocketseat utilizando Stripe.       | Desenvolvendo...                                        | [Veja o Repositório](https://github.com/mateussantanasilva/IgniteProjects/tree/main/IgniteShop)     |
+| Ignite Shop      | E-commerce para compras de produtos originais da Rocketseat utilizando Stripe.       | [Acesse o site](https://igniteshopapp.vercel.app/)     | [Veja o Repositório](https://github.com/mateussantanasilva/IgniteProjects/tree/main/IgniteShop)     |
 | Github Blog      | Blog que usa a API do GitHub para buscar issues de um repositório.                   | [Acesse o site](https://githubblogapp.netlify.app/)     | [Veja o Repositório](https://github.com/mateussantanasilva/IgniteProjects/tree/main/GithubBlog)     |
 | DT Money         | Permite controle financeiro que utiliza o JSON server para simulação de uso de API.  | Desenvolvendo...                                        | [Veja o Repositório](https://github.com/mateussantanasilva/IgniteProjects/tree/main/DTMoney)        |
 | Coffee Delivery  | Loja com um catálogo variado de cafés que permite relizar os pedidos que desejar  .  | [Acesse o site](https://coffeedeliveryapp.netlify.app/) | [Veja o Repositório](https://github.com/mateussantanasilva/IgniteProjects/tree/main/CoffeeDelivery) |
 | Ignite Timer     | Cronometro para realização de tarefas, com de histórico de todas as atividades.      | [Acesse o site](https://ignitetimerapp.vercel.app/)     | [Veja o Repositório](https://github.com/mateussantanasilva/IgniteProjects/tree/main/IgniteTimer)    |
 | ToDo List        | Lista de tarefas para controlar todos os compromissos que forem cadastrados.         | [Acesse o site](https://to-dolist-app.vercel.app/)      | [Veja o Repositório](https://github.com/mateussantanasilva/IgniteProjects/tree/main/ToDoList)       |
-| Ignite Feed      | Simulação de uma rede social inicial para demonstrar conceitos do React.             | [Acesse o site](https://ignitefeed-app.vercel.app/)     | [Veja o Repositório](https://github.com/mateussantanasilva/IgniteProjects/tree/main/IgniteFeed)     |
+| Ignite Feed      | Simulação de uma rede social inicial para demonstrar conceitos do React.             | [Acesse o site](https://ignitefeed-app.netlify.app/)    | [Veja o Repositório](https://github.com/mateussantanasilva/IgniteProjects/tree/main/IgniteFeed)     |
 
 ## 💻 Acessar os projetos local
 
