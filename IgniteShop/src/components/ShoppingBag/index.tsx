@@ -1,17 +1,16 @@
 'use client'
 
 import Image from 'next/image'
+import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart'
+import { CheckoutButton } from '../CheckoutButton'
+import { Handbag, X } from '@phosphor-icons/react'
 import {
   ShoppingBagContainer,
   ShoppingBagContent,
   ShoppingBagItems,
   ShoppingBagFooter,
 } from './styles'
-import { Handbag, X } from '@phosphor-icons/react'
-
-import tshirt from '@/assets/IgniteLab-T-shirt 1.png'
-import { formatCurrencyString, useShoppingCart } from 'use-shopping-cart'
-import { CheckoutButton } from '../CheckoutButton'
+import standardTShirt from '@/assets/standardTShirt.png'
 
 interface ShoppingBagProps {
   toHide?: boolean
@@ -31,25 +30,20 @@ export function ShoppingBag({ toHide }: ShoppingBagProps) {
     handleCartClick()
   }
 
-  const isExistsItemAndBagNotEmpty =
-    cartDetails && Object.keys(cartDetails).length > 0
+  const bagNotEmpty = cartDetails && Object.keys(cartDetails).length > 0
 
-  const cartDetailsInArray =
-    isExistsItemAndBagNotEmpty && Object.values(cartDetails)
+  const cartDetailsInArray = bagNotEmpty && Object.values(cartDetails)
 
-  const isItemInBag = cartCount && cartCount > 0
-
-  console.log(cartCount)
   return (
     <>
       <ShoppingBagContainer
-        bagNotEmpty={isItemInBag || false}
-        toHide={toHide}
         onClick={handleChangeBagDisplay}
+        bagNotEmpty={bagNotEmpty}
+        toHide={toHide}
         css={{
           // shows quantity of items in bag
           '&::before': {
-            content: isItemInBag ? cartCount.toString() : '',
+            content: cartCount ? cartCount.toString() : '',
           },
         }}
       >
@@ -76,7 +70,7 @@ export function ShoppingBag({ toHide }: ShoppingBagProps) {
                   <li key={cartItem.id}>
                     <div>
                       <Image
-                        src={cartItem.image || tshirt}
+                        src={cartItem.image || standardTShirt}
                         alt={cartItem.name}
                         width={95}
                         height={95}
@@ -106,7 +100,7 @@ export function ShoppingBag({ toHide }: ShoppingBagProps) {
             <strong>{formattedTotalPrice}</strong>
           </div>
 
-          <CheckoutButton isItemInBag={isItemInBag || 0} />
+          <CheckoutButton isItemInBag={bagNotEmpty || 0} />
         </ShoppingBagFooter>
       </ShoppingBagContent>
     </>

@@ -1,6 +1,6 @@
-import { ProductType } from '@/app/page'
-import { stripe } from '@/libs/stripe'
 import { NextRequest, NextResponse } from 'next/server'
+import { stripe } from '@/libs/stripe'
+import { ProductType } from '@/contexts/CartContext'
 
 export async function POST(request: NextRequest) {
   const { cartItems } = await request.json() // request.body

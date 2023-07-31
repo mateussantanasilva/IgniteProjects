@@ -1,8 +1,8 @@
 'use client'
 
-import { ProductType } from '@/app/page'
-import { ButtonContainer } from './styles'
 import { useShoppingCart } from 'use-shopping-cart'
+import { ProductType } from '@/contexts/CartContext'
+import { ButtonContainer } from './styles'
 
 interface BuyProductButtonProps {
   product: ProductType
@@ -20,7 +20,7 @@ export function BuyProductButton({ product }: BuyProductButtonProps) {
   return (
     <ButtonContainer
       onClick={handleAddItemToBag}
-      disabled={sameItemAlreadyExistsInBag || false}
+      disabled={sameItemAlreadyExistsInBag}
     >
       Colocar na sacola
     </ButtonContainer>

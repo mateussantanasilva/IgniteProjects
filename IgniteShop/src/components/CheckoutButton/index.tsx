@@ -1,7 +1,7 @@
-import { useShoppingCart } from 'use-shopping-cart'
-import { ButtonContainer } from './styles'
-import axios from 'axios'
 import { useState } from 'react'
+import { useShoppingCart } from 'use-shopping-cart'
+import axios from 'axios'
+import { ButtonContainer } from './styles'
 
 interface CheckoutButtonProps {
   isItemInBag: boolean | 0
@@ -23,7 +23,6 @@ export function CheckoutButton({ isItemInBag }: CheckoutButtonProps) {
       const response = await axios.post('/api/checkout', {
         cartItems: cartItemsInArray,
       })
-
       const { sessionId } = response.data
 
       await redirectToCheckout(sessionId)

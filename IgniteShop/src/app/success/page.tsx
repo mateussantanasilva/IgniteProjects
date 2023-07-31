@@ -1,9 +1,9 @@
-import { stripe } from '@/libs/stripe'
-import Stripe from 'stripe'
-import { redirect } from 'next/navigation'
 import { Metadata } from 'next'
-import { SuccessContent } from './components/SuccessContent'
+import { redirect } from 'next/navigation'
+import Stripe from 'stripe'
+import { stripe } from '@/libs/stripe'
 import { Header } from '@/components/Header'
+import { SuccessContent } from './components/SuccessContent'
 
 interface SuccessProps {
   searchParams: {
@@ -35,7 +35,6 @@ async function getCheckoutSessionId(session_id: string) {
   })
 
   const customerName = session.customer_details?.name
-
   const products = session.line_items?.data.map((item) => {
     const product = item.price?.product as Stripe.Product
 
@@ -54,8 +53,6 @@ async function getCheckoutSessionId(session_id: string) {
 
 export default async function Success({ searchParams }: SuccessProps) {
   const purchaseData = await getCheckoutSessionId(searchParams.session_id)
-
-  if (!purchaseData) redirect('/')
 
   return (
     <>

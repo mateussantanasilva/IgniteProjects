@@ -2,10 +2,10 @@
 
 import Image from 'next/image'
 
-import logoIgniteShop from '@/assets/logo.svg'
-import { HeaderContainer } from './styles'
 import Link from 'next/link'
 import { ShoppingBag } from '../ShoppingBag'
+import { HeaderContainer } from './styles'
+import logoIgniteShop from '@/assets/logo.svg'
 
 interface HeaderProps {
   justLogo?: boolean

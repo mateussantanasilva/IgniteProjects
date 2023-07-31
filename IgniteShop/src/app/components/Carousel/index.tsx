@@ -1,13 +1,13 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
+import { formatCurrencyString } from 'use-shopping-cart'
+import { ProductType } from '@/contexts/CartContext'
+import { ShoppingBagButton } from '../ShoppingBagButton'
 import { useKeenSlider } from 'keen-slider/react'
 import { CarouselContainer, Product } from './styles'
 import 'keen-slider/keen-slider.min.css'
-import Link from 'next/link'
-import { ShoppingBagButton } from '../ShoppingBagButton'
-import { ProductType } from '@/app/page'
-import { formatCurrencyString } from 'use-shopping-cart'
 
 interface CarouselProps {
   products: ProductType[]

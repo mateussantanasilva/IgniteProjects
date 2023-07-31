@@ -2,11 +2,10 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { SuccessContainer, ImageItemsContainer } from './styles'
-
-import { PurchaseData } from '../../page'
-import { useShoppingCart } from 'use-shopping-cart'
 import { useEffect } from 'react'
+import { useShoppingCart } from 'use-shopping-cart'
+import { PurchaseData } from '../../page'
+import { SuccessContainer, ImageItemsContainer } from './styles'
 
 interface SuccessContentProps {
   purchaseData: PurchaseData
@@ -15,14 +14,18 @@ interface SuccessContentProps {
 export function SuccessContent({ purchaseData }: SuccessContentProps) {
   const { clearCart } = useShoppingCart()
 
-  const { customerName, products } = purchaseData
-
   useEffect(() => {
     // run when unmount component - change pages
     return () => {
       clearCart()
     }
   }, [])
+
+  const { customerName, products } = purchaseData
+
+  const amountOfTShirts = ` ${products.length}`.concat(
+    products.length > 1 ? ` camisetas` : ` camiseta`,
+  )
 
   return (
     <SuccessContainer>
@@ -45,9 +48,7 @@ export function SuccessContent({ purchaseData }: SuccessContentProps) {
 
       <p>
         Uhuul <strong>{customerName}</strong>, sua compra de
-        {` ${products.length}`}
-        {products.length > 1 ? ` camisetas` : ` camiseta`} já está a caminho da
-        sua casa.
+        {amountOfTShirts} já está a caminho da sua casa.
       </p>
 
       <Link href={'/'}>Voltar ao catálogo</Link>

@@ -1,9 +1,9 @@
 'use client'
 
 import { useShoppingCart } from 'use-shopping-cart'
+import { ProductType } from '@/contexts/CartContext'
 import { ButtonContainer } from './styles'
 import { Handbag } from '@phosphor-icons/react'
-import { ProductType } from '@/app/page'
 
 interface ShoppingBagButtonProps {
   product: ProductType
@@ -21,7 +21,7 @@ export function ShoppingBagButton({ product }: ShoppingBagButtonProps) {
   return (
     <ButtonContainer
       onClick={handleAddItemToBag}
-      disabled={sameItemAlreadyExistsInBag || false}
+      disabled={sameItemAlreadyExistsInBag}
     >
       <Handbag weight="bold" color="#fff" size={'3.2rem'} />
     </ButtonContainer>

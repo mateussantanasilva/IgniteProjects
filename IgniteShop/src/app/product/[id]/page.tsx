@@ -1,8 +1,8 @@
-import { stripe } from '@/libs/stripe'
-import Stripe from 'stripe'
 import { Metadata } from 'next'
-import { ProductDetails } from './components/ProductDetails'
+import Stripe from 'stripe'
+import { stripe } from '@/libs/stripe'
 import { Header } from '@/components/Header'
+import { ProductDetails } from './components/ProductDetails'
 
 interface ProductProps {
   params: {

@@ -1,10 +1,10 @@
 'use client'
 
 import Image from 'next/image'
+import { formatCurrencyString } from 'use-shopping-cart'
+import { ProductType } from '@/contexts/CartContext'
 import { BuyProductButton } from '../BuyProductButton'
 import { ProductContainer, ImageContainer, DetailsContainer } from './styles'
-import { ProductType } from '@/app/page'
-import { formatCurrencyString } from 'use-shopping-cart'
 
 interface ProductDetailsProps {
   product: ProductType
@@ -33,7 +33,6 @@ export function ProductDetails({ product }: ProductDetailsProps) {
 
         <p>{product.description}</p>
 
-        {/*  defaultPriceId={product.defaultPriceId} */}
         <BuyProductButton product={product} />
       </DetailsContainer>
     </ProductContainer>

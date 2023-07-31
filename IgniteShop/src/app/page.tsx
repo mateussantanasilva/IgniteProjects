@@ -1,19 +1,8 @@
+import { Metadata } from 'next'
 import Stripe from 'stripe'
 import { stripe } from '@/libs/stripe'
 import { Carousel } from './components/Carousel'
-import { Metadata } from 'next'
 import { Header } from '@/components/Header'
-
-export interface ProductType {
-  id: string
-  sku: string
-  name: string
-  image: string
-  currency: string
-  price: number
-  defaultPriceId: string
-  description?: string
-}
 
 export const metadata: Metadata = {
   title: 'Home | Ignite Shop',

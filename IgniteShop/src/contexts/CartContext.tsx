@@ -7,6 +7,17 @@ interface CartContextProviderProps {
   children: ReactNode
 }
 
+export interface ProductType {
+  id: string
+  sku: string
+  name: string
+  image: string
+  currency: string
+  price: number
+  defaultPriceId: string
+  description?: string
+}
+
 const stripePublicKey = process.env.NEXT_PUBLIC_STRIPE_KEY as string
 
 export function CartContextProvider({ children }: CartContextProviderProps) {
